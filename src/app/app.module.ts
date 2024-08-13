@@ -1,9 +1,9 @@
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent, MotifThemeModule } from '@ey-xd/ng-motif';
 
 @NgModule({

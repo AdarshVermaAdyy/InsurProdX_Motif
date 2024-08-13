@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
      console.log("here is username  .. ", username, password);
     if(username === "kshama" && password === "123"){
      // sessionStorage.setItem("isLoggedIn","true");
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['/dashboard']);
     }else{
       console.log("error in navigate");
      // sessionStorage.setItem("isLoggedIn", "false");

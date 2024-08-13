@@ -1,9 +1,9 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeaderComponent } from './header/header.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LoginComponent } from './components/login/login.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const routes: Routes = [
   {path:'header',component:HeaderComponent},
