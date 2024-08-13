@@ -1,0 +1,151 @@
+<!-- <div style="padding: 14px">
+  <motif-form-field>
+    <input
+      motifInput
+      motifSearch
+      [motifTypeahead]="typeAheadList"
+      type="text"
+      placeholder="Please enter your search"
+      aria-label="Search Bar"
+      [(ngModel)]="model"
+      tabindex="0"
+      id="singleSearch"
+      [hideClear]="false"
+
+      (clear)="clearValue()"
+    />
+  </motif-form-field>
+
+  Model Value: {{ model  }}
+</div> -->
+<!-- <div style="padding: 14px">
+  <div style="transform: 'scale(1)';">
+    <header motif-header>
+      <button
+        aria-controls="vertical-navigation-menu"
+        aria-label="Open and close menu button"
+        motif-header-menu
+        (click)="toggleShowMenu()"
+        position="left"
+        [attr.aria-expanded]="showMenu"
+      ></button>
+      <img
+        motif-header-logo
+        alt="Product name"
+        src="./ey-container-logo.svg"
+        position="left"
+      />
+
+      <span motif-header-title position="left">Product name</span>
+      <button
+        motif-header-icon
+        position="right"
+        aria-label="Example notification button"
+      >
+        <motif-icon var="--content-Ic-Flag-24px"></motif-icon>
+      </button>
+      <button
+        motif-header-avatar
+        position="right"
+        aria-label="Example avatar button"
+      >
+        <motif-avatar
+          size="small"
+          userName="Ignacio"
+          description="Ignacio"
+        ></motif-avatar>
+      </button>
+    </header>
+
+    <nav
+      motif-vertical-navigation
+      [show]="showMenu"
+      [show]="true"
+      id="vertical-navigation-menu"
+      style="--height: calc(100vh - 85px)"
+    >
+      <ul motif-vertical-navigation-menu style="position: top;">
+        <ng-container *ngFor="let item of items; index as i">
+          <ng-container
+            *ngTemplateOutlet="!item ? itemTemplate : subMenuTemplate; context: {item, index: i}"
+          ></ng-container>
+        </ng-container>
+
+        <ng-template #itemTemplate let-item="item">
+          <li motif-vertical-navigation-menu-item>
+            <a
+              motif-vertical-navigation-menu-link
+              [routerLink]="item.routerLink"
+              vertical-navigation-menu-item-active
+              [verticalNavigationMenuItemActiveOptions]="{exact: item.exact}"
+            >
+              <motif-icon *ngIf="item?.icon" [var]="item?.icon"></motif-icon>
+              <span>{{item?.label}}</span>
+            </a>
+          </li>
+        </ng-template>
+
+        <ng-template #subMenuTemplate let-item="item" let-index="index">
+          <li
+            motif-vertical-navigation-menu-item
+            vertical-navigation-menu-item-active
+            [useContextMenu]="false"
+          >
+            <a
+              motif-vertical-navigation-menu-link
+              role="button"
+              [attr.aria-controls]="'submenu-' + index"
+              tabindex="0"
+              [hideArrow]="false"
+            >
+              <motif-icon *ngIf="item?.icon" [var]="item?.icon"></motif-icon>
+              <span>{{item?.label}}</span>
+            </a>
+            <ul motif-vertical-navigation-sub-menu id="submenu-{{index}}">
+              <ng-container *ngFor="let subItem of item.subMenu">
+                <li motif-vertical-navigation-menu-item>
+                  <a
+                    motif-vertical-navigation-menu-link
+                    [routerLink]="subItem.routerLink"
+                    vertical-navigation-menu-item-active
+                    [verticalNavigationMenuItemActiveOptions]="{exact: subItem.exact}"
+                  >
+                    <span>{{subItem?.label}}</span>
+                  </a>
+                </li>
+              </ng-container>
+            </ul>
+          </li>
+        </ng-template>
+      </ul>
+
+      <ul motif-vertical-navigation-menu [position]:bottom>
+        <li
+          motif-vertical-navigation-menu-item
+          vertical-navigation-menu-item-active
+          [useContextMenu]="true"
+        >
+          <a
+            motif-vertical-navigation-menu-link
+            role="button"
+            aria-controls="context-switcher-example"
+            [hideArrow]="false"
+            tabindex="0"
+          >
+            <motif-icon var="--content-Ic-Flag-24px"></motif-icon>
+            <span>Context Switcher 1</span>
+          </a>
+
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+    </main>
+  </div>
+</div> -->
+
+<!-- <app-sidenav></app-sidenav> -->
+<app-header></app-header>
+<app-table></app-table>
+<app-footer></app-footer>
