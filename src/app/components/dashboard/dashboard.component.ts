@@ -10,12 +10,11 @@ import { MotifVerticalNavigationModule } from '@ey-xd/ng-motif';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TableComponent } from "../table/table.component";
-import { SidenavComponent } from "../sidenav/sidenav.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, FooterComponent, HeaderComponent, MotifVerticalNavigationModule, MotifIconModule, MotifAvatarModule, FormsModule, CommonModule, RouterModule, TableComponent, SidenavComponent],
+  imports: [MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, FooterComponent, HeaderComponent, MotifVerticalNavigationModule, MotifIconModule, MotifAvatarModule, FormsModule, CommonModule, RouterModule, TableComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

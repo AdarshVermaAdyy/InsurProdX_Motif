@@ -13,15 +13,12 @@
       src="assets/images/ey-logo-black.png"
       position="left"
     />
+
     <!-- <button motif-header-avatar position="left" aria-label="Avatar">
       < motif-avatar  className="undefined"
       size="medium"
 ></motif-avatar>
     </button> -->
-
-
-
-
     <span motif-header-title position="left">InsurProdX</span>
     <motif-form-field position="right">
       <input
@@ -105,4 +102,123 @@
       ></motif-avatar>
     </button>
   </header>
+  <nav
+  motif-vertical-navigation
+  [show]="showMenu"
+  [show]="true"
+  id="vertical-navigation-menu"
+  style="--height: calc(100vh - 85px)"
+>
+  <ul motif-vertical-navigation-menu [position]="top">
+    <ng-container *ngFor="let item of items; index as i">
+      <ng-container
+        *ngTemplateOutlet=" itemTemplate ; context: {item, index: i}"
+      ></ng-container>
+    </ng-container>
+
+    <ng-template #itemTemplate let-item="item">
+      <li motif-vertical-navigation-menu-item>    
+        <a
+          motif-vertical-navigation-menu-link
+          [routerLink]="item.routerLink"
+          vertical-navigation-menu-item-active
+          [verticalNavigationMenuItemActiveOptions]="{exact: item.exact}"
+        >
+          <motif-icon *ngIf="item?.icon" [iconFunction]="item?.icon()"></motif-icon>
+          <span>{{item?.label}}</span>
+        </a>
+      </li>
+    </ng-template>
+
+    <ng-template #subMenuTemplate let-item="item" let-index="index">
+      <li
+        motif-vertical-navigation-menu-item
+        vertical-navigation-menu-item-active
+        [useContextMenu]="false"
+      >
+        <a
+          motif-vertical-navigation-menu-link
+          role="button"
+          [attr.aria-controls]="'submenu-' + index"
+          
+          [hideArrow]="false"
+        >
+          <motif-icon *ngIf="item?.icon" [iconFunction]="item?.icon()"></motif-icon>
+          <span>{{item?.label}}</span>
+        </a>
+        <ul motif-vertical-navigation-sub-menu id="submenu-{{index}}">
+          <ng-container *ngFor="let subItem of item.subMenu">
+            <li motif-vertical-navigation-menu-item>
+              <a
+                motif-vertical-navigation-menu-link
+                [routerLink]="subItem.routerLink"
+                vertical-navigation-menu-item-active
+                [verticalNavigationMenuItemActiveOptions]="{exact: subItem.exact}"
+              >
+                <span>{{subItem?.label}}</span>
+              </a>
+            </li>
+          </ng-container>
+        </ul>
+      </li>
+    </ng-template>
+  </ul>
+
+  <!-- <ul motif-vertical-navigation-menu [position]="bottom">
+    <li
+      motif-vertical-navigation-menu-item
+      vertical-navigation-menu-item-active
+      [useContextMenu]="true"
+    >
+      <a
+        motif-vertical-navigation-menu-link
+        role="button"
+        aria-controls="context-switcher-example"
+        [hideArrow]="false"
+        tabindex="0"
+      >
+        <motif-icon var="--content-Ic-Flag-24px"></motif-icon>
+        <span>Context Switcher 1</span>
+      </a>
+      <ul motif-vertical-navigation-sub-menu id="context-switcher-example">
+        <caption motif-vertical-navigation-sub-menu-caption>
+          switch to
+        </caption>
+        <li motif-vertical-navigation-menu-item>
+          <a
+            motif-vertical-navigation-menu-link
+            (click)="contextSwitcher = 'Context Switcher 1'"
+            [ngClass]="{'motif-vertical-navigation-menu-item-active': contextSwitcher == 'Context Switcher 1'}"
+            tabindex="0"
+            (keypress)="contextSwitcher = onLinkPress($event, 'Context Switcher 1')"
+          >
+            <span>Context Switcher 1</span>
+          </a>
+        </li>
+        <li motif-vertical-navigation-menu-item>
+          <a
+            motif-vertical-navigation-menu-link
+            (click)="contextSwitcher = 'Context Switcher 2'"
+            [ngClass]="{'motif-vertical-navigation-menu-item-active': contextSwitcher == 'Context Switcher 2'}"
+            tabindex="0"
+            (keypress)="contextSwitcher = onLinkPress($event, 'Context Switcher 2')"
+          >
+            <span>Context Switcher 2</span>
+          </a>
+        </li>
+        <li motif-vertical-navigation-menu-item>
+          <a
+            motif-vertical-navigation-menu-link
+            (click)="contextSwitcher = 'Context Switcher 3'"
+            [ngClass]="{'motif-vertical-navigation-menu-item-active': contextSwitcher == 'Context Switcher 3'}"
+            tabindex="0"
+            (keypress)="contextSwitcher = onLinkPress($event, 'Context Switcher 3')"
+          >
+            <span>Context Switcher 3</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul> -->
+</nav>
 </div>
