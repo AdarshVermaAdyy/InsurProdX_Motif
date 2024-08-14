@@ -1,0 +1,10 @@
+<span :class="missionSpan">
+    @if (value) {
+        <img
+            [alt]="value"
+            [src]="'https://www.ag-grid.com/example-assets/icons/' + value + '.png'"
+            [height]="30"
+            :class="missionIcon"
+        />
+    }
+</span>
