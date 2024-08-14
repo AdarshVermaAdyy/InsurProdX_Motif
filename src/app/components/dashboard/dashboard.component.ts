@@ -11,11 +11,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TableComponent } from "../table/table.component";
 import { SidenavComponent } from "../sidenav/sidenav.component";
+import { ChartsComponent } from "../charts/charts.component";
+import { InsurTableComponent } from "../insur-table/insur-table.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, FooterComponent, HeaderComponent, MotifVerticalNavigationModule, MotifIconModule, MotifAvatarModule, FormsModule, CommonModule, RouterModule, TableComponent, SidenavComponent],
+  imports: [MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, FooterComponent, HeaderComponent, MotifVerticalNavigationModule, MotifIconModule, MotifAvatarModule, FormsModule, CommonModule, RouterModule, TableComponent, SidenavComponent, ChartsComponent, InsurTableComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

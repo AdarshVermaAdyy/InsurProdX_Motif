@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { MotifTableModule } from '@ey-xd/ng-motif';
 import { MotifCardModule,MotifButtonModule } from '@ey-xd/ng-motif';
 import { Chart, registerables } from 'chart.js';
+import { InsurTableComponent } from "../insur-table/insur-table.component";
 Chart.register(...registerables)
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [MotifTableModule,HttpClientModule,MotifCardModule,MotifButtonModule,],
+  imports: [MotifTableModule, HttpClientModule, MotifCardModule, MotifButtonModule, InsurTableComponent],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
