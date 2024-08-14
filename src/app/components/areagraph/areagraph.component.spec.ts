@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableComponent } from './table.component';
+import { AreagraphComponent } from './areagraph.component';
 
-describe('TableComponent', () => {
-  let component: TableComponent;
-  let fixture: ComponentFixture<TableComponent>;
+describe('AreagraphComponent', () => {
+  let component: AreagraphComponent;
+  let fixture: ComponentFixture<AreagraphComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TableComponent]
+      imports: [AreagraphComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TableComponent);
+    fixture = TestBed.createComponent(AreagraphComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

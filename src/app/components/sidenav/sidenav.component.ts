@@ -8,12 +8,11 @@ import { FooterComponent } from "../footer/footer.component";
 import { HeaderComponent } from "../header/header.component";
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TableComponent } from "../table/table.component";
 import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-sidenav',
   standalone: true,
-  imports: [MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, FooterComponent, HeaderComponent, MotifVerticalNavigationModule, MotifIconModule, MotifAvatarModule, FormsModule, CommonModule, RouterModule, TableComponent],
+  imports: [MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, FooterComponent, HeaderComponent, MotifVerticalNavigationModule, MotifIconModule, MotifAvatarModule, FormsModule, CommonModule, RouterModule,],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss'
 })
