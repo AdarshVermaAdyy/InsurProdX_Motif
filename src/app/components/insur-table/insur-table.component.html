@@ -1,0 +1,20 @@
+<div style="padding: 14px">
+    <div>
+      <motif-table
+        tableTitle="Insurance"
+        variant="alt"
+        [columnDefs]="columnDefs1"
+        [rowData]="rowData"
+        [defaultColDef]="{
+                      headerCheckboxSelection: false,
+                      checkboxSelection: false,
+                      sortable: true
+                    }"
+        [suppressRowClickSelection]="true"
+        [suppressCellSelection]="true"
+        [pagination]="true"
+        [paginationPageSize]="6"
+        [tooltipShowDelay]="tooltipShowDelay"
+      ></motif-table>
+    </div>
+  </div>

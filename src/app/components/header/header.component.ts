@@ -7,10 +7,11 @@ import { IconoirComputer,IconoirMultiplePages, MotifActionIcHome24px,IconoirFavo
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MotifHeaderModule,CommonModule, MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, MotifVerticalNavigationModule, MotifIconModule, MotifAvatarModule, FormsModule, CommonModule, RouterModule,HttpClientModule,FormsModule,MotifIconModule,MotifBadgeModule,MotifAvatarModule],
+  imports: [MotifHeaderModule,CommonModule, DashboardComponent, MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, MotifVerticalNavigationModule, MotifIconModule,DashboardComponent, MotifAvatarModule, FormsModule, CommonModule, RouterModule,HttpClientModule,FormsModule,MotifIconModule,MotifBadgeModule,MotifAvatarModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

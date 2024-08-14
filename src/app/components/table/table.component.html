@@ -1,4 +1,53 @@
 <div style="padding: 14px" >
+
+  <div class="container">
+    <div class="third"> <div >
+      <motif-card orientation="vertical" cardVariant="card-border" id="first-div" >
+        <img
+          motifCardImage
+          src="assets/images/health-insurance.png"
+          alt="img" height="300" width="300"
+        />
+
+        <motif-card-footer>
+          <button motifButton color="secondary" size="fluid">Contact CTA</button>
+          <button motifButton color="primary" size="fluid">Get Quote</button>
+        </motif-card-footer>
+      </motif-card>
+
+    </div></div>
+    <div class="third"> <div>
+      <motif-card orientation="vertical" cardVariant="card-border" id="first-div" >
+        <img
+          motifCardImage
+          src="assets/images/insurance.png"
+          alt="img"
+        />
+
+
+        <motif-card-footer>
+          <button motifButton color="secondary" size="fluid">Contact CTA</button>
+          <button motifButton color="primary" size="fluid"> Get Quote</button>
+        </motif-card-footer>
+      </motif-card>
+
+    </div></div>
+    <div class="third"> <div >
+      <motif-card orientation="vertical" cardVariant="card-border" id="first-div" >
+        <img
+          motifCardImage
+          src="assets/images/life-insurance.png"
+          alt="img"
+        />
+
+        <motif-card-footer>
+          <button motifButton color="secondary" size="fluid"> Contact CTA</button>
+          <button motifButton color="primary" size="fluid">Get Quote</button>
+        </motif-card-footer>
+      </motif-card>
+    </div></div>
+  </div>
+  <br><br>
   <div class="container">
     <div class="third"> <div >
       <motif-card orientation="vertical" cardVariant="card-border" id="first-div" >
@@ -20,7 +69,7 @@
           </p>
         </motif-card-body>
         <motif-card-footer>
-          <button motifButton color="secondary" size="fluid">Button CTA</button>
+          <button motifButton color="secondary" size="fluid" [routerLink]="['/register']" [routerLinkActive]="['is-active']" > Register</button>
           <button motifButton color="primary" size="fluid">Button CTA</button>
         </motif-card-footer>
       </motif-card>
@@ -46,7 +95,7 @@
           </p>
         </motif-card-body>
         <motif-card-footer>
-          <button motifButton color="secondary" size="fluid">Button CTA</button>
+          <button motifButton color="secondary" size="fluid"[routerLink]="['/insur-table']" [routerLinkActive]="['is-active']">Table</button>
           <button motifButton color="primary" size="fluid">Button CTA</button>
         </motif-card-footer>
       </motif-card>
