@@ -1,8 +1,25 @@
 .container {
-  display: flex;
+  display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
 }
 
 .third {
-  flex: 1; /* Each div will take up an equal amount of space */
+  padding: 20px;
+  text-align: center;
+  padding: 20px;
+  text-align: center;
+  margin: 5px;
+  border: 0.5px ;
 }
-
+.motif-card-header {
+align-items: center;
+}
+.icon{
+  align-items: center;
+}
+.--card-header-alt-icon-hover-icon-color	{
+ align-items: center;
+}
+.third:hover {background-color: #D7D7DC
+  ;}
