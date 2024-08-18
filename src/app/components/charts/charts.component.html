@@ -1,11 +1,19 @@
-<div>
-</div>
-<div class="row">
-  <div class="column">  <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
-  </div>
-  <div class="column">  <canvasjs-chart [options]="chartOptions1" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
-  </div>
-  <div class="column">  <canvasjs-chart [options]="chartOptions2" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
-  </div>
 
+
+<div class="row">
+  <motif-card orientation="vertical" cardVariant="card-border" id="first-div" >
+<!-- <div class="chart-container" style="position: relative; height:60vh; width:120vw"> -->
+  <canvas id="doughnutchart">{{chart}}</canvas>
+<!-- </div> -->
+</motif-card>
+<motif-card orientation="vertical" cardVariant="card-border" id="first-div" >
+<!-- <div class="chart-container" style="position: relative; height:60vh; width:120vw"> -->
+  <canvas id="barchart">{{chart}}</canvas>
+<!-- </div> -->
+</motif-card>
+<motif-card orientation="vertical" cardVariant="card-border" id="first-div" >
+<!-- <div class="chart-container" style="position: relative; height:60vh; width:120vw"> -->
+  <canvas id="piechart">{{chart}}</canvas>
+<!-- </div>  -->
+</motif-card>
 </div>
