@@ -1,0 +1,26 @@
+p{
+    text-align: center;
+    cursor: pointer;
+   }
+   .highlighted{
+    text-decoration: underline;
+   }
+   .highlighted:hover{
+    text-decoration: underline;
+   
+   }
+.headingText{
+    font-weight: bold;
+}
+   .wrapper-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form-wrapper{
+    border: 1px solid grey;
+    padding: 20px;
+    width: 40%;
+    border-radius: 5px;
+  }

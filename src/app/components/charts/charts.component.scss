@@ -1,8 +1,37 @@
-.row {
-    display: flex;
-  }
-  .column {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #000;
-  }
+// .row {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 16px;
+//   margin-left: 8px;
+//   }
+//   .row > *{
+//     flex: 1 1 100px;
+//   }
+//   .third {
+//     flex: 1; /* Each div will take up an equal amount of space */
+//   }
+  // .row.motif-card{
+  //   --card--border-width: 300px
+  // }
+
+  
+.grid-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 20px;
+  margin-bottom: 5px;
+  
+}
+.grid-item{
+  //z-index: auto;
+  height: 300px;
+  // text-align: center;
+  // //background-color: aqua;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+   border: 2px solid #DEDEE2;
+ // padding: 10px;
+  
+}

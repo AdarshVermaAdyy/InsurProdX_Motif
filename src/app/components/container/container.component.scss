@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+}
+.item {
+  flex: 1;
+  background-color: lightcoral;
+  padding: 20px;
+  text-align: center;
+  margin: 5px; /* Optional: adds space between items */
+}
