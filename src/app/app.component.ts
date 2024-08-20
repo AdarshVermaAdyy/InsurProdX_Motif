@@ -9,7 +9,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class AppComponent implements OnInit{
   title = 'project';
-  headerFooter = false
+  headerFooter: boolean = false
 
   constructor(private router: Router) {
   }
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     this.router.events.subscribe(event => {
       if(event instanceof NavigationEnd){
-        this.headerFooter = ((event.url !== '/' ))
+      this.headerFooter = (event.url === '/' || event.url === '/signup' || event.url === '/login'
       }
     })
   }
