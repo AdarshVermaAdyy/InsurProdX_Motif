@@ -1,0 +1,20 @@
+<div
+motifDropdown
+[autoClose]="true"
+[closeOnBackdropClick]="true"
+[open]="false"
+>
+
+  <motif-icon  motifIconButton
+  aria-label="Dropdown toggle example"
+  motifDropdownToggle
+  id="motifExampleDropdown" [iconFunction]="moreHorizIconFunction()"></motif-icon>
+
+<div motifDropdownMenu aria-labelledby="motifExampleDropdown">
+  <button motifDropdownItem>View profile</button>
+  <span class="motif-dropdown-horizontal-divider"></span>
+  <button motifDropdownItem>Edit</button>
+  <button motifDropdownItem>Delete</button>
+  
+</div>
+</div>

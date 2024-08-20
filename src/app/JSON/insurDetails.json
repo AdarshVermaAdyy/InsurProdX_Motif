@@ -1,0 +1,7 @@
+
+[{ "Name": "Toyota","Status" : "Active", "InsuranceType": "Celica", "PremiumAmount": 35000 },
+  { "Name": "Ford", "Status" : "Expired", "InsuranceType": "Mondeo", "PremiumAmount": 32000 },
+  { "Name": "Porsche","Status" : "Expired", "InsuranceType": "Boxster", "PremiumAmount": 72000 },
+  { "Name": "BMW","Status" : "Active", "InsuranceType": "M50", "PremiumAmount": 60000 },
+  { "Name": "Aston Martin","Status" : "Active", "InsuranceType": "DBX", "PremiumAmount": 190000 }
+]
