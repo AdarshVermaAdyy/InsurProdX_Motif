@@ -7,15 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import{ BaseChartDirective } from 'ng2-charts';
 import { Chart } from 'chart.js/auto';
 
-import { ChartsService } from 'src/app/chartsService/charts.service';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 @Component({
   selector: 'app-charts',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, CanvasJSAngularChartsModule,
-    MotifTableModule,HttpClientModule,MotifCardModule,MotifButtonModule,
-    BaseChartDirective 
-
-  ],
+  imports: [RouterOutlet, CommonModule, CanvasJSAngularChartsModule,MotifTableModule,HttpClientModule,MotifCardModule,MotifButtonModule, DashboardComponent, BaseChartDirective ],
   templateUrl: './charts.component.html',
   styleUrl: './charts.component.scss'
 })

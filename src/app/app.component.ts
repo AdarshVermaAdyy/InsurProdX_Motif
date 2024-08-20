@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
     this.router.events.subscribe(event => {
       if(event instanceof NavigationEnd){
      this.headerFooter = (event.url === '/' || event.url === '/signup');
+
       }
     })
   }
