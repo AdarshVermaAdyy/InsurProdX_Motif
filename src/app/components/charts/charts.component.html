@@ -1,19 +1,32 @@
 
 
-<div class="row">
-  <motif-card orientation="vertical" cardVariant="card-border" id="first-div" >
-<!-- <div class="chart-container" style="position: relative; height:60vh; width:120vw"> -->
+<div class="row" height="200">
+  
+  <motif-card orientation="vertical" cardVariant="card-border">
+   
   <canvas id="doughnutchart">{{chart}}</canvas>
-<!-- </div> -->
+
 </motif-card>
-<motif-card orientation="vertical" cardVariant="card-border" id="first-div" >
-<!-- <div class="chart-container" style="position: relative; height:60vh; width:120vw"> -->
-  <canvas id="barchart">{{chart}}</canvas>
-<!-- </div> -->
+
+
+<motif-card orientation="vertical" cardVariant="card-border"  >
+  
+  <canvas id="barchart" width="400" height="200">{{chart}}</canvas>
+
 </motif-card>
-<motif-card orientation="vertical" cardVariant="card-border" id="first-div" >
-<!-- <div class="chart-container" style="position: relative; height:60vh; width:120vw"> -->
+
+
+<motif-card orientation="vertical" cardVariant="card-border" >
+ 
   <canvas id="piechart">{{chart}}</canvas>
-<!-- </div>  -->
+
 </motif-card>
+
 </div>
+
+<!-- <div class="grid-container">
+  <div class="grid-item"> <canvas id="doughnutchart" width="200" height="200">{{chart}}</canvas></div>
+  <div class="grid-item"><canvas id="barchart" width="200" height="200">{{chart}}</canvas></div>
+  <div class="grid-item"> <canvas id="piechart" width="200" height="200">{{chart}}</canvas></div>
+
+</div> -->

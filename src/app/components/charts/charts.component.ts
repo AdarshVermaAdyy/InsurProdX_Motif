@@ -44,6 +44,7 @@ export class ChartsComponent implements OnInit{
  this.renderBarChart(this.lableData, this.realData, this.colourData);
  this.renderPieChart(this.lableData, this.realData, this.colourData);
  this.renderDoughnutChart(this.lableData, this.realData, this.colourData);
+ this.renderLineChart(this.lableData, this.realData, this.colourData);
     }
   }
   renderBarChart(labeldata:string[], valuedata:any, colordata:any){
@@ -55,6 +56,9 @@ export class ChartsComponent implements OnInit{
 
   renderDoughnutChart(labeldata:string[], valuedata:any, colordata:any){
     this.RenderChart(labeldata,valuedata,colordata, 'doughnutchart', 'doughnut');
+  }
+  renderLineChart(labeldata:string[], valuedata:any, colordata:any){
+    this.RenderChart(labeldata,valuedata,colordata, 'linechart', 'line');
   }
   RenderChart(labeldata:string[], valuedata:any, colordata:any, chartId: string, chartType: any){
     const mychar = new Chart (chartId,{

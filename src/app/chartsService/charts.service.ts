@@ -45,7 +45,7 @@ export class ChartsService {
         {
           "year": 2015,
           "amount": 5000,
-          "colorcode": "#BFBFC8"
+          "colorcode": "#FFE600"
         },
         {
           "year": 2016,
