@@ -1,0 +1,62 @@
+<motif-theme variant='light'></motif-theme>
+<div class="login-container" style="display: flex; align-items: center; justify-content: center; margin-top: 10%;">
+    <div style=" padding: 14px " class="motif-skeleton-6">
+        <form [formGroup]="signupForm" (ngSubmit)="SignupForm()">
+            <div style="text-align:center">
+                <img
+        
+                alt="Product name"
+                src="assets/images/ey-logo-black.png"
+                width="50" height="50"
+              />
+                <h4> InsurProdX SignUp </h4></div>
+            <div class="motif-row">
+                <div class="motif-col-xs-4 motif-col-lg" style="margin-bottom: 16px">
+                    <motif-form-field>
+                        <label motifLabel>Username</label>
+                        <input motifInput type="text" aria-label="Username Form Field" formControlName="username" />
+
+                        <motif-error
+                            *ngIf="signupForm.get('username')?.hasError('required') && signupForm.get('username')?.touched">
+                            Oops, please provide a username!
+                        </motif-error>
+                    </motif-form-field>
+                </div>
+            </div>
+            <div class="motif-row">
+                <div class="motif-col-xs-4 motif-col-lg" style="margin-bottom: 16px">
+                    <motif-form-field>
+                        <label motifLabel>email</label>
+                        <input motifInput type="email" aria-label="email Form Field" formControlName="email" />
+
+                        <motif-error
+                            *ngIf="signupForm.get('email')?.hasError('required') && signupForm.get('email')?.touched">
+                            Oops, please provide a email!
+                        </motif-error>
+                    </motif-form-field>
+                </div>
+            </div>
+            <div class="motif-row">
+                <div class="motif-col-xs-4 motif-col-lg" style="margin-bottom: 16px">
+                    <motif-form-field>
+                        <label motifLabel>Password</label>
+                        <input motifInput type="password" aria-label="Password Form Field" formControlName="password" />
+                        <motif-error
+                            *ngIf="(signupForm.get('password')?.hasError('required') || signupForm.get('password')?.hasError('minlength'))&& signupForm.get('password')?.touched">
+                            Oops, please provide a password!
+                        </motif-error>
+                    </motif-form-field>
+                </div>
+
+            </div>
+
+
+            <button motifButton color="primary" [disabled]="signupForm.invalid" size="fluid" type="submit">
+                Submit
+            </button>
+            <p (click)="toggleForm()">
+                Already have an account ? <span class="highlighted">LOGIN</span>
+            </p>
+        </form>
+    </div>
+</div>

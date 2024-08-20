@@ -7,15 +7,23 @@
 .form-wrapper{
     border: 1px solid grey;
     padding: 20px;
-    width: 40%;
+    width: 80%;
     border-radius: 5px;
 }
 
 .field-wrapper{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
+}
+
+.field-div{
+    width: 32.5%;
+}
+
+.add-field{
+    width: 49.3% !important;
 }
 
 .error-msg {

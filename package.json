@@ -19,6 +19,8 @@
     "@angular/platform-browser": "^17.3.12",
     "@angular/platform-browser-dynamic": "^17.3.12",
     "@angular/router": "^17.3.12",
+    "@canvasjs/angular-charts": "^1.2.0",
+    "@canvasjs/charts": "^3.10.4",
     "@ey-xd/motif-core": "^2.2.6",
     "@ey-xd/motif-icon": "^2.2.0",
     "@ey-xd/ng-motif": "^8.2.1",
