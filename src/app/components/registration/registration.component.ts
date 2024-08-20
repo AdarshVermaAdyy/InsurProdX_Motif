@@ -53,6 +53,7 @@ export class RegistrationComponent {
       lastName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       phone: new FormControl('', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]),
+      altPhone: new FormControl('', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]),
       dob: new FormControl(new Date(), Validators.required),
       add1: new FormControl('', [Validators.required]),
       add2: new FormControl(''),
@@ -82,6 +83,10 @@ export class RegistrationComponent {
 
   get phone(){
     return this.userForm.get('phone');
+  }
+
+  get altPhone(){
+    return this.userForm.get('altPhone');
   }
 
   get dob(){

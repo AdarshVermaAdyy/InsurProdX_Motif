@@ -9,7 +9,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class AppComponent implements OnInit{
   title = 'project';
-  headerFooter = false
+  headerFooter: boolean = false
 
   constructor(private router: Router) {
   }

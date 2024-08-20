@@ -1,20 +1,31 @@
 <div class="container">
 <div style="padding: 14px">
+  <div>
+    <button
+      (click)="onBtExport()"
+      style="margin-bottom: 5px;"
+    >
+    <motif-icon
+    [iconFunction]=myIconFunction()
+    >
+  </motif-icon>
+  Export Excel
+    </button>
+  </div>
     <div>
       <motif-table
-        tableTitle="Insurance"
         variant="alt"
         [columnDefs]="columnDefs1"
         [rowData]="rowData"
         [defaultColDef]="{
-                      headerCheckboxSelection: false,
-                      checkboxSelection: false,
                       sortable: true
                     }"
         [suppressRowClickSelection]="true"
         [suppressCellSelection]="true"
         [pagination]="true"
+        rowSelection="multiple"
         [paginationPageSize]="6"
+        (gridReady)="onGridReady($event)"
         [tooltipShowDelay]="tooltipShowDelay"
       ></motif-table>
     </div>
