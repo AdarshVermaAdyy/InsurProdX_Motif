@@ -8,6 +8,7 @@ import{ BaseChartDirective } from 'ng2-charts';
 import { Chart } from 'chart.js/auto';
 
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { ChartsService } from 'src/app/chartsService/charts.service';
 @Component({
   selector: 'app-charts',
   standalone: true,
