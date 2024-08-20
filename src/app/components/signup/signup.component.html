@@ -1,6 +1,8 @@
 <motif-theme variant='light'></motif-theme>
 <div class="login-container" style="display: flex; align-items: center; justify-content: center; margin-top: 10%;">
-    <div style=" padding: 14px " class="motif-skeleton-6">
+    <!-- <div style=" padding: 14px " class="motif-skeleton-6"> -->
+        <div class="wrapper-container">
+            <div class="form-wrapper">
         <form [formGroup]="signupForm" (ngSubmit)="SignupForm()">
             <div style="text-align:center">
                 <img
@@ -9,7 +11,9 @@
                 src="assets/images/ey-logo-black.png"
                 width="50" height="50"
               />
-                <h4> InsurProdX SignUp </h4></div>
+                <div class="headingText"> InsurProdX</div>
+                <div class="headingText"> SignUp </div>
+            </div>
             <div class="motif-row">
                 <div class="motif-col-xs-4 motif-col-lg" style="margin-bottom: 16px">
                     <motif-form-field>
@@ -42,7 +46,7 @@
                         <label motifLabel>Password</label>
                         <input motifInput type="password" aria-label="Password Form Field" formControlName="password" />
                         <motif-error
-                            *ngIf="(signupForm.get('password')?.hasError('required') || signupForm.get('password')?.hasError('minlength'))&& signupForm.get('password')?.touched">
+                            *ngIf="signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched">
                             Oops, please provide a password!
                         </motif-error>
                     </motif-form-field>
@@ -58,5 +62,6 @@
                 Already have an account ? <span class="highlighted">LOGIN</span>
             </p>
         </form>
+    </div>
     </div>
 </div>
