@@ -1,0 +1,27 @@
+.noti-wrapper{
+    min-width: 300px;
+}
+
+.noti-time {
+    font-size: 12px;
+}
+
+.noti-msg {
+    font-size: 14px;
+}
+
+.noti-body{
+    display: flex;
+    justify-content: space-between;
+}
+
+.noti-heading{
+    font-weight: 500; 
+    font-size: 14px;
+}
+
+.panel-heading{
+    padding-left: 10px;
+    padding-top: 5px;
+    font-weight: 600;
+}
