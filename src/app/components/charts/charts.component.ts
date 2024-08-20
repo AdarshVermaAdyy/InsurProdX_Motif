@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { MotifButtonModule, MotifCardModule, MotifTableModule } from '@ey-xd/ng-motif';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 @Component({
   selector: 'app-charts',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, CanvasJSAngularChartsModule,MotifTableModule,HttpClientModule,MotifCardModule,MotifButtonModule],
+  imports: [RouterOutlet, CommonModule, CanvasJSAngularChartsModule,MotifTableModule,HttpClientModule,MotifCardModule,MotifButtonModule, DashboardComponent],
   templateUrl: './charts.component.html',
   styleUrl: './charts.component.scss'
 })
