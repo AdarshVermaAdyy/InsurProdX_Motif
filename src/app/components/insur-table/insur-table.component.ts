@@ -15,13 +15,17 @@ export class InsurTableComponent {
   columnDefs1 = [
     { field: 'Name'},
     { field : 'Status',cellRenderer: InsuranceStatusComponent,cellClass: "statusCell",headerTooltip: "Active/Expired"},
-    { field: 'InsuranceType'},
+    
     { field: 'PremiumAmount'},
+   
+    { field: 'CoverType'},
+    { field: 'ClaimNumber'},
+    {field: "PaymentMethod"}
     
 ]
-rowData = [{ Name: "Toyota",Status : 'Active', InsuranceType: "Celica", PremiumAmount: 35000 },
-  { Name: "Ford", Status : 'Expired', InsuranceType: "Mondeo", PremiumAmount: 32000 },
-  { Name: "Porsche",Status : 'Expired', InsuranceType: "Boxster", PremiumAmount: 72000 },
-  { Name: "BMW",Status : 'Active', InsuranceType: "M50", PremiumAmount: 60000 },
-  { Name: "Aston Martin",Status : 'Active', InsuranceType: "DBX", PremiumAmount: 190000 },]
+rowData = [{ Name: "Toyota",Status : 'Active', InsuranceType: "Celica", PremiumAmount: 35000, CoverType:"Health Insurance", ClaimNumber:"CLM001233", PaymentMethod:"Credit Card" },
+  { Name: "Ford", Status : 'Expired', InsuranceType: "Mondeo", PremiumAmount: 32000, CoverType:"Health Insurance", ClaimNumber:"CLM001273", PaymentMethod:"Debit Card" },
+  { Name: "Porsche",Status : 'Expired', InsuranceType: "Boxster", PremiumAmount: 72000, CoverType:"Car Insurance", ClaimNumber:"CLM001238",PaymentMethod:"Debit Card"  },
+  { Name: "BMW",Status : 'Active', InsuranceType: "M50", PremiumAmount: 60000, CoverType:"Travel Insurance", ClaimNumber:"CLM001233", PaymentMethod:"Debit Card"  },
+  { Name: "Aston Martin",Status : 'Active', InsuranceType: "DBX", PremiumAmount: 190000, CoverType:"Life Insurance", ClaimNumber:"CLM001293" , PaymentMethod:"Debit Card" },]
 }

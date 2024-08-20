@@ -4,16 +4,56 @@ import { MotifTableModule } from '@ey-xd/ng-motif';
 import { MotifCardModule,MotifButtonModule } from '@ey-xd/ng-motif';
 import { Chart, registerables } from 'chart.js';
 import { InsurTableComponent } from "../insur-table/insur-table.component";
+import { MotifIconModule } from '@ey-xd/ng-motif';
+import {MotifMapsIcDirectionsCar24px,IconoirViewGrid, MotifMapsIcLocalTaxi24px,MotifActionIcCardTravel24px,MotifActionIcAccessibility24px ,MotifActionIcPets24px,IconoirBuilding,MotifSocialIcPeople24px,MotifMapsIcFlight24px,IconoirUmbrella,MotifMapsIcDirectionsBike24px,IconoirHealthcare} from '@ey-xd/motif-icon';
 Chart.register(...registerables)
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [MotifTableModule, HttpClientModule, MotifCardModule, MotifButtonModule, InsurTableComponent],
+  imports: [MotifTableModule, HttpClientModule, MotifCardModule, MotifButtonModule, InsurTableComponent,MotifIconModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
 export class TableComponent {
   chart:any;
+  myInvestment(){
+    return MotifActionIcCardTravel24px;
+  }
+  mylifeFunction(){
+    return MotifActionIcAccessibility24px;
+  }
+  myIconFunction(){
+    return MotifMapsIcDirectionsCar24px;
+  }
+  myflightFunction(){
+    return MotifMapsIcFlight24px;
+  }
+  mybikeFunction(){
+    return MotifMapsIcDirectionsBike24px;
+  }
+  myIconHealth(){
+    return IconoirHealthcare;
+  }
+  mytermFunction(){
+    return IconoirUmbrella;
+  }
+  myfFunction(){
+    return MotifSocialIcPeople24px;
+
+  }
+  myBussinessFunction(){
+    return IconoirBuilding;
+  }
+  mypetFunction(){
+    return MotifActionIcPets24px;
+  }
+  mytaxiFunction(){
+    return MotifMapsIcLocalTaxi24px;
+  }
+  myviewFunction(){
+    return IconoirViewGrid;
+  }
+
 public  configs = {
   type: 'doughnut',
   data: {

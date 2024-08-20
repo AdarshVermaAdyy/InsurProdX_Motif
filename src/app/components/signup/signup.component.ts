@@ -23,7 +23,6 @@ export class SignupComponent implements OnInit {
   }
   signupForm !: FormGroup;
   constructor(private fb: FormBuilder,
-  //  private authService: AuthService,
     private router: Router
   ) {
     this.signupForm = this.fb.group({
@@ -35,11 +34,11 @@ export class SignupComponent implements OnInit {
 
   SignupForm() {
     console.log("Signup page");
-    this.router.navigate(['login']);
+    this.router.navigate(['/']);
 
   }
   toggleForm() {
-    this.router.navigate(['login']);
+    this.router.navigate(['/']);
 
   }
 }
