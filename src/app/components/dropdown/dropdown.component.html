@@ -1,1 +1,25 @@
-<p>dropdown works!</p>
+  <div style="padding-left: 40%;">
+    <div
+      motifDropdown
+      [ngClass]="{'placement-bottom': 'bottom-right'=='bottom-right'}"
+      [autoClose]="true"
+      [closeOnBackdropClick]="true"
+      [open]="false"
+    >
+      <button
+        motifIconButton
+        aria-label="more Button"
+        motifDropdownToggle
+        id="motifExampleDropdown"
+      >
+        <motif-icon [iconFunction]="moreHorizIconFunction()"></motif-icon>
+      </button>
+      <div motifDropdownMenu aria-labelledby="motifExampleDropdown">
+        <button motifDropdownItem>View profile</button>
+        <button motifDropdownItem>Settings</button>
+        <button motifDropdownItem>Keyboard shortcuts</button>
+        <span class="motif-dropdown-horizontal-divider"></span>
+        <button motifDropdownItem>Log out</button>
+      </div>
+    </div>
+  </div>

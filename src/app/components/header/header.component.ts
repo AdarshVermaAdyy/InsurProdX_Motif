@@ -2,22 +2,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {IconoirSearch,IconoirBell,IconoirHelpCircle,IconoirSettings,IconoirMoreHoriz } from '@ey-xd/motif-icon';
-import { MotifHeaderModule,MotifFormsModule,MotifIconModule ,MotifBadgeModule,MotifAvatarModule, MotifVerticalNavigationModule, MotifCardModule} from '@ey-xd/ng-motif';
-import { IconoirComputer,IconoirMultiplePages, MotifActionIcHome24px,IconoirFavouriteBook, MotifActionIcSettings24px } from '@ey-xd/motif-icon';
+import { MotifHeaderModule,MotifFormsModule,MotifIconModule ,MotifBadgeModule,MotifAvatarModule, MotifVerticalNavigationModule, MotifCardModule, DropdownDirective, MotifDropdownModule} from '@ey-xd/ng-motif';
+import { IconoirComputer,IconoirMultiplePages,MotifActionIcAccountCircle24px, MotifActionIcHome24px,IconoirFavouriteBook, MotifActionIcSettings24px } from '@ey-xd/motif-icon';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { DropdownComponent } from "../dropdown/dropdown.component";
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MotifHeaderModule,CommonModule, DashboardComponent, MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, MotifVerticalNavigationModule, MotifIconModule,DashboardComponent, MotifAvatarModule, FormsModule, CommonModule, RouterModule,HttpClientModule,FormsModule,MotifIconModule,MotifBadgeModule,MotifAvatarModule],
+  imports: [MotifHeaderModule, CommonModule, DashboardComponent, MotifDropdownModule, MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, MotifVerticalNavigationModule, MotifIconModule, DashboardComponent, MotifAvatarModule, FormsModule, CommonModule, RouterModule, HttpClientModule, FormsModule, MotifIconModule, MotifBadgeModule, MotifAvatarModule, DropdownComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 
 export class HeaderComponent {
 
+  open:boolean = false
   model:any;
   motifTypeahead:any;
   selected:any;
@@ -62,6 +64,9 @@ export class HeaderComponent {
   moreHoriz(){
     return IconoirMoreHoriz;
 
+  }
+  avatar() {
+    return MotifActionIcAccountCircle24px;
   }
   settings(){
     return IconoirSettings;
