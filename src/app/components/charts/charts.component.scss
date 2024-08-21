@@ -11,6 +11,8 @@
     display: flex;
     height: 100px;
     margin-bottom: 200px;
+    margin-right: 100px;
+    margin-left: 300px;
   }
 //   .third {
 //     flex: 1; /* Each div will take up an equal amount of space */
@@ -19,7 +21,7 @@
   //   --card--border-width: 300px
   // }
 
-  
+
 .grid-container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -27,6 +29,7 @@
   padding: 0 20px;
   margin-bottom: 5px;
   justify-content: center;
+  margin-left: 50px;
 }
 .grid-item{
   display: flex;
@@ -39,5 +42,5 @@
    align-items: center;
    border: 2px solid #DEDEE2;
  // padding: 10px;
-  
+
 }

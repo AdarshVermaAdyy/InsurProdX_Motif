@@ -2,59 +2,88 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Route, Router, RouterModule } from '@angular/router';
-import { IconoirBell, IconoirEditPencil, IconoirGridPlus, IconoirLogOut, IconoirProfileCircle, IconoirSettings, MotifActionIcAccountCircle24px } from '@ey-xd/motif-icon';
-import { MotifHeaderModule, MotifFormsModule, MotifIconModule, MotifAvatarModule, MotifDropdownModule, MotifBadgeModule } from '@ey-xd/ng-motif';
+import { IconoirBell, IconoirEditPencil, IconoirFavouriteBook, IconoirGridPlus, IconoirHelpCircle, IconoirLogOut, IconoirMoreHoriz, IconoirMultiplePages, IconoirProfileCircle, IconoirSearch, IconoirSettings, MotifActionIcAccountCircle24px, MotifActionIcHome24px, MotifActionIcSettings24px } from '@ey-xd/motif-icon';
+import { MotifHeaderModule, MotifFormsModule, MotifIconModule, MotifAvatarModule, MotifDropdownModule, MotifBadgeModule, MotifVerticalNavigationModule, MotifCardModule } from '@ey-xd/ng-motif';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [
-    MotifHeaderModule,
-    MotifFormsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MotifIconModule,
-    MotifAvatarModule,
-    MotifDropdownModule,RouterModule,MotifBadgeModule
-  ],
+  imports: [MotifHeaderModule,CommonModule, DashboardComponent, MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, MotifVerticalNavigationModule, MotifIconModule,DashboardComponent, MotifAvatarModule, FormsModule, CommonModule, RouterModule,HttpClientModule,FormsModule,MotifIconModule,MotifBadgeModule,MotifAvatarModule,MotifDropdownModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 
 export class HeaderComponent {
 
-  model: any;
-  motifTypeahead: any;
-  selected: any;
-  showMenu = false;
-constructor(private router : Router){}
-  bell() {
+  model:any;
+  motifTypeahead:any;
+  selected:any;
+  showMenu:boolean = false;
+  items=[{
+    label: 'Dashboard',
+    icon:  function(){
+      return MotifActionIcHome24px;
+    },
+    exact: false,
+  },
+  {
+    label: 'Favourites',
+    icon:  function(){
+      return IconoirFavouriteBook;
+    },
+    exact: false,
+
+  },
+  {
+    label: 'Settings',
+    icon:  function(){
+      return MotifActionIcSettings24px;
+    },
+    exact: false,
+
+  },
+  {
+    label: 'Pages',
+    icon:  function(){
+      return IconoirMultiplePages;
+    },
+    exact: false,
+
+  }
+];
+  search(){
+    return IconoirSearch;
+
+
+  }
+  moreHoriz(){
+    return IconoirMoreHoriz;
+
+  }
+  settings(){
+    return IconoirSettings;
+
+  }
+  helpCircle(){
+    return IconoirHelpCircle;
+
+  }
+  bell(){
     return IconoirBell;
+
   }
 
-  avatar() {
-    return IconoirProfileCircle;
-  }
-
-  toggleShowMenu() {
+  toggleShowMenu(){
     this.showMenu = !this.showMenu;
   }
-  editProfileFunction(){
-    return IconoirEditPencil;
+  myIconFunction() {
+    return MotifActionIcHome24px;
   }
-  viewProfileFunction(){
-    return IconoirProfileCircle;
-  }
-  settingFunction(){
-    return IconoirSettings;
-  }
-  logoutFunction(){
-    return IconoirLogOut;
-  }
-  registerClick(){
-    console.log('register')
-    this.router.navigate(['/register']);
-  }
-  registerIconFunction(){
-    return IconoirGridPlus;
+  top:any;
+  bottom:any;
+  contextSwitcher:any;
+  onLinkPress(e:any,words:any){
+
   }
 }
