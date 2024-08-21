@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Route, Router, RouterModule } from '@angular/router';
 import { IconoirBell, IconoirEditPencil, IconoirGridPlus, IconoirLogOut, IconoirProfileCircle, IconoirSettings, MotifActionIcAccountCircle24px } from '@ey-xd/motif-icon';
-import { MotifHeaderModule, MotifFormsModule, MotifIconModule, MotifAvatarModule, MotifDropdownModule } from '@ey-xd/ng-motif';
+import { MotifHeaderModule, MotifFormsModule, MotifIconModule, MotifAvatarModule, MotifDropdownModule, MotifBadgeModule } from '@ey-xd/ng-motif';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -14,7 +14,7 @@ import { MotifHeaderModule, MotifFormsModule, MotifIconModule, MotifAvatarModule
     ReactiveFormsModule,
     MotifIconModule,
     MotifAvatarModule,
-    MotifDropdownModule,RouterModule
+    MotifDropdownModule,RouterModule,MotifBadgeModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

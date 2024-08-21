@@ -20,7 +20,9 @@
     <button motif-header-icon position="right" (click)="selected = !selected" aria-label="Show notifications">
       <div motifDropdown [autoClose]="true" [closeOnBackdropClick]="true" [open]="false">
         <motif-icon motifIconButton aria-label="Dropdown toggle example" motifDropdownToggle id="motifExampleDropdown"
-          [iconFunction]="bell()" strokeWidth="2" fill="none" size="24"></motif-icon>
+          [iconFunction]="bell()" strokeWidth="2" fill="none" size="24">
+          <motif-badge type="info-alt" [number]="4" [overlap]="true"> </motif-badge>
+        </motif-icon>
         <div motifDropdownMenu aria-labelledby="motifExampleDropdown">
           <p class="panel-heading">Notifications</p>
           <div motifDropdownItem>
