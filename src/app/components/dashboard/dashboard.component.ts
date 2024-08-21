@@ -12,11 +12,14 @@ import { RouterModule } from '@angular/router';
 import { TableComponent } from "../table/table.component";
 import { ChartsComponent } from "../charts/charts.component";
 import { InsurTableComponent } from "../insur-table/insur-table.component";
+import { SummaryChartComponent } from '../summary-chart/summary-chart.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, FooterComponent, HeaderComponent, MotifVerticalNavigationModule, MotifIconModule, MotifAvatarModule, FormsModule, CommonModule, RouterModule, TableComponent, ChartsComponent, InsurTableComponent],
+  imports: [MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, FooterComponent, HeaderComponent, MotifVerticalNavigationModule, MotifIconModule, MotifAvatarModule, FormsModule, CommonModule, RouterModule, TableComponent, ChartsComponent, InsurTableComponent,
+    SummaryChartComponent
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
