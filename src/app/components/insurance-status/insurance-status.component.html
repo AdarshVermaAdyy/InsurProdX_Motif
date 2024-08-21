@@ -1,10 +1,17 @@
 <span :class="missionSpan">
-    @if (value) {
+    <!-- @if (value) {
         <img
             [alt]="value"
             [src]="'https://www.ag-grid.com/example-assets/icons/' + value + '.png'"
             [height]="30"
             :class="missionIcon"
         />
-    }
+    } -->
+    <motif-chip 
+    [variant]="value=='Active'?'success':'error'"
+    type="chip"
+    dotSide = "left"
+  >
+    {{value}}
+  </motif-chip>
 </span>
