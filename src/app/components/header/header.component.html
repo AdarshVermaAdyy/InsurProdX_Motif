@@ -31,68 +31,57 @@
         [motifTypeahead]="motifTypeahead"
       />
     </motif-form-field>
-    <button
-      motif-header-icon
-      position="right"
-      (click)="selected = !selected"
-      aria-label="Toggle search"
-    >
-      <motif-icon
-        [iconFunction]="search()"
-        strokeWidth="2"
-        fill="none"
-        size="24"
-      ></motif-icon>
-    </button>
-    <button
-      motif-header-icon
-      position="right"
-      (click)="selected = !selected"
-      aria-label="Show notifications"
-    >
-      <motif-icon [iconFunction]="bell()" strokeWidth="2" fill="none" size="24">
-        <!-- <motif-badge  type="info-alt" ></motif-badge> -->
-      </motif-icon>
-    </button>
-    <button
-      motif-header-icon
-      position="right"
-      (click)="selected = !selected"
-      aria-label="Help"
-    >
-      <motif-icon
-        [iconFunction]="helpCircle()"
-        strokeWidth="2"
-        fill="none"
-        size="24"
-      ></motif-icon>
-    </button>
-    <button
-      motif-header-icon
-      position="right"
-      [selected]="false"
-      (click)="selected = !selected"
-      aria-label="Settings"
-    >
-      <motif-icon
-        [iconFunction]="settings()"
-        strokeWidth="2"
-        fill="none"
-        size="24"
-      ></motif-icon>
-    </button>
-    <button
-      motif-header-icon
-      position="right"
-      (click)="selected = !selected"
-      aria-label="more Button"
-    >
-      <motif-icon
-        [iconFunction]="moreHoriz()"
-        strokeWidth="2"
-        fill="none"
-        size="24"
-      ></motif-icon>
+
+    //notifications
+    <button motif-header-icon position="right" (click)="selected = !selected" aria-label="Show notifications">
+      <div motifDropdown [autoClose]="true" [closeOnBackdropClick]="true" [open]="false">
+        <motif-icon motifIconButton aria-label="Dropdown toggle example" motifDropdownToggle id="motifExampleDropdown"
+          [iconFunction]="bell()" strokeWidth="2" fill="none" size="24">
+          <motif-badge type="info-alt" [number]="4" [overlap]="true"> </motif-badge>
+        </motif-icon>
+        <div motifDropdownMenu aria-labelledby="motifExampleDropdown">
+          <p class="panel-heading">Notifications</p>
+          <div motifDropdownItem>
+            <div class="noti-wrapper">
+              <div class="noti-heading">Heading</div>
+              <div class="noti-body">
+                <div class="noti-msg">This is a sample notification.</div>
+                <div class="noti-time">12:34</div>
+              </div>
+            </div>
+          </div>
+          <span class="motif-dropdown-horizontal-divider"></span>
+          <div motifDropdownItem>
+            <div class="noti-wrapper">
+              <div class="noti-heading">Heading</div>
+              <div class="noti-body">
+                <div class="noti-msg">This is a sample notification.</div>
+                <div class="noti-time">12:34</div>
+              </div>
+            </div>
+          </div>
+          <span class="motif-dropdown-horizontal-divider"></span>
+          <div motifDropdownItem>
+            <div class="noti-wrapper">
+              <div class="noti-heading">Heading</div>
+              <div class="noti-body">
+                <div class="noti-msg">This is a sample notification.</div>
+                <div class="noti-time">12:34</div>
+              </div>
+            </div>
+          </div>
+          <span class="motif-dropdown-horizontal-divider"></span>
+          <div motifDropdownItem>
+            <div class="noti-wrapper">
+              <div class="noti-heading">Heading</div>
+              <div class="noti-body">
+                <div class="noti-msg">This is a sample notification.</div>
+                <div class="noti-time">12:34</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </button>
     <button motif-header-avatar position="right" aria-label="Avatar">
       <motif-avatar
