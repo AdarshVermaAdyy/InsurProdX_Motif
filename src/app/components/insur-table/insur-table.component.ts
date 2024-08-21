@@ -28,6 +28,7 @@ export class InsurTableComponent {
     { field : 'Status',cellRenderer: InsuranceStatusComponent,cellClass: "statusCell",headerTooltip: "Active/Expired"},
     { field: 'InsuranceType'},
     { field: 'PremiumAmount',valueFormatter: (p: any) => '₹ ' + p.value.toLocaleString(),filter: true,floatingFilter: true},
+    { field: 'PaymentMethod'},
     { field: 'Action',cellRenderer: ActionButtonComponent}
 ]
 rowData : any
@@ -40,11 +41,11 @@ onBtExport() {
 onGridReady(params: GridReadyEvent<any>) {
   this.gridAPI = params.api;
 
- this.rowData = [{ Name: "Toyota",Status : 'Active', InsuranceType: "Celica", PremiumAmount: 35000 },
-  { Name: "Ford", Status : 'Expired', InsuranceType: "Mondeo", PremiumAmount: 32000 },
-  { Name: "Porsche",Status : 'Expired', InsuranceType: "Boxster", PremiumAmount: 72000 },
-  { Name: "BMW",Status : 'Active', InsuranceType: "M50", PremiumAmount: 60000 },
-  { Name: "Aston Martin",Status : 'Active', InsuranceType: "DBX", PremiumAmount: 190000 },]
+ this.rowData = [{ Name: "Toyota",Status : 'Active', InsuranceType: "Celica", PremiumAmount: 35000,PaymentMethod : "UPI" },
+  { Name: "Ford", Status : 'Expired', InsuranceType: "Mondeo", PremiumAmount: 32000,PaymentMethod: "CC" },
+  { Name: "Porsche",Status : 'Expired', InsuranceType: "Boxster", PremiumAmount: 72000,PaymentMethod : "UPI" },
+  { Name: "BMW",Status : 'Active', InsuranceType: "M50", PremiumAmount: 60000, PaymentMethod : "CC" },
+  { Name: "Aston Martin",Status : 'Active', InsuranceType: "DBX", PremiumAmount: 190000 ,PaymentMethod : "Cash"},]
 }
 
 
