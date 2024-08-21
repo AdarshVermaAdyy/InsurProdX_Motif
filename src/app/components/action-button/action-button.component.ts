@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IconoirMoreVert } from '@ey-xd/motif-icon';
+import { IconoirEdit, IconoirMoreVert, IconoirPageSearch, IconoirTrash } from '@ey-xd/motif-icon';
 import { MotifDropdownModule, MotifIconModule } from '@ey-xd/ng-motif';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams } from 'ag-grid-community';
@@ -26,4 +26,13 @@ refresh(params: CustomButtonParams) {
     return IconoirMoreVert;
   }
 
+  viewRow(){
+    return IconoirPageSearch;
+  }
+  editRow(){
+    return IconoirEdit
+  }
+  deleteRow(){
+    return IconoirTrash
+  }
 }
