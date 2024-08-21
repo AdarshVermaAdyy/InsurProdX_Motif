@@ -1,12 +1,17 @@
-// .row {
-//   display: flex;
-//   flex-wrap: wrap;
-//   gap: 16px;
-//   margin-left: 8px;
-//   }
-//   .row > *{
-//     flex: 1 1 100px;
-//   }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-left: 8px;
+  }
+  .row > *{
+    flex: 1 1 100px;
+  }
+  .container{
+    display: flex;
+    height: 100px;
+    margin-bottom: 200px;
+  }
 //   .third {
 //     flex: 1; /* Each div will take up an equal amount of space */
 //   }
@@ -21,16 +26,17 @@
   gap: 20px;
   padding: 0 20px;
   margin-bottom: 5px;
-  
+  justify-content: center;
 }
 .grid-item{
+  display: flex;
   //z-index: auto;
   height: 300px;
-  // text-align: center;
+   text-align: center;
   // //background-color: aqua;
   // display: flex;
-  // justify-content: center;
-  // align-items: center;
+   justify-content: center;
+   align-items: center;
    border: 2px solid #DEDEE2;
  // padding: 10px;
   
