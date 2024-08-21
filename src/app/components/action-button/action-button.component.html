@@ -4,10 +4,10 @@
     [iconFunction]="moreHorizIconFunction()"></motif-icon>
 
   <div motifDropdownMenu aria-labelledby="motifExampleDropdown">
-    <button motifDropdownItem>View profile</button>
+    <button motifDropdownItem><motif-icon [iconFunction]="viewRow()"></motif-icon>View</button>
     <span class="motif-dropdown-horizontal-divider"></span>
-    <button motifDropdownItem>Edit</button>
-    <button motifDropdownItem>Delete</button>
+    <button motifDropdownItem><motif-icon [iconFunction]="editRow()"></motif-icon>Edit</button>
+    <button motifDropdownItem><motif-icon [iconFunction]="deleteRow()"></motif-icon>Delete</button>
 
   </div>
 </div>

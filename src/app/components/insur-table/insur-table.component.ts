@@ -24,12 +24,14 @@ export class InsurTableComponent {
   @ViewChild('dropdownTemplate') dropdownTemplate : ElementRef;
  
   columnDefs1 = [
-    { field: 'Name'},
-    { field : 'Status',cellRenderer: InsuranceStatusComponent,cellClass: "statusCell",headerTooltip: "Active/Expired"},
-    { field: 'InsuranceType'},
+    { field: 'Name',checkboxSelection: true,headerCheckboxSelection: true,flex:1,filter: true,floatingFilter: true},
+    { field : 'Status',cellRenderer: InsuranceStatusComponent,cellClass: "statusCell",headerTooltip: "Active/Expired",minWidth: 100,
+      maxWidth: 120,},
+    { field: 'InsuranceType',flex:1,filter: true,floatingFilter: true},
     { field: 'PremiumAmount',valueFormatter: (p: any) => '₹ ' + p.value.toLocaleString(),filter: true,floatingFilter: true},
-    { field: 'PaymentMethod'},
-    { field: 'Action',cellRenderer: ActionButtonComponent}
+    { field: 'PaymentMethod',filter: true,floatingFilter: true},
+    { field: 'Action',cellRenderer: ActionButtonComponent,minWidth: 100,
+      maxWidth: 120,}
 ]
 rowData : any
 constructor(private tableService : TableService){}
@@ -41,11 +43,15 @@ onBtExport() {
 onGridReady(params: GridReadyEvent<any>) {
   this.gridAPI = params.api;
 
- this.rowData = [{ Name: "Toyota",Status : 'Active', InsuranceType: "Celica", PremiumAmount: 35000,PaymentMethod : "UPI" },
-  { Name: "Ford", Status : 'Expired', InsuranceType: "Mondeo", PremiumAmount: 32000,PaymentMethod: "CC" },
-  { Name: "Porsche",Status : 'Expired', InsuranceType: "Boxster", PremiumAmount: 72000,PaymentMethod : "UPI" },
-  { Name: "BMW",Status : 'Active', InsuranceType: "M50", PremiumAmount: 60000, PaymentMethod : "CC" },
-  { Name: "Aston Martin",Status : 'Active', InsuranceType: "DBX", PremiumAmount: 190000 ,PaymentMethod : "Cash"},]
+ this.rowData = [{ Name: "Jeffery Madison",Status : 'Active', InsuranceType: "Health", PremiumAmount: 35000,PaymentMethod : "UPI" },
+  { Name: "Ford Harry", Status : 'Expired', InsuranceType: "Motor", PremiumAmount: 32000,PaymentMethod: "CC" },
+  { Name: "George Madison",Status : 'Expired', InsuranceType: "Business", PremiumAmount: 72000,PaymentMethod : "UPI" },
+  { Name: "Jake Paul",Status : 'Active', InsuranceType: "Travel", PremiumAmount: 60000, PaymentMethod : "CC" },
+  { Name: "Aston Martin",Status : 'Active', InsuranceType: "Travel", PremiumAmount: 190000 ,PaymentMethod : "Cash"},
+  { Name: "George Madison",Status : 'Expired', InsuranceType: "Business", PremiumAmount: 72000,PaymentMethod : "UPI" },
+  { Name: "Jake Paul",Status : 'Active', InsuranceType: "Travel", PremiumAmount: 60000, PaymentMethod : "CC" },
+  { Name: "Aston Martin",Status : 'Active', InsuranceType: "Travel", PremiumAmount: 190000 ,PaymentMethod : "Cash"},
+]
 }
 
 

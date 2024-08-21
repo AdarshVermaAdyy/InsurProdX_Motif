@@ -70,14 +70,15 @@
     <button motif-header-avatar position="right" aria-label="Avatar">
       <div motifDropdown [autoClose]="true" [closeOnBackdropClick]="true" [open]="false">
         <motif-icon motifIconButton aria-label="Dropdown toggle example" motifDropdownToggle id="motifExampleDropdown"
-          [iconFunction]="avatar()" strokeWidth="2" fill="solid" size="32"></motif-icon>
+          [iconFunction]="avatar()" strokeWidth="2" size="32"></motif-icon>
         <div motifDropdownMenu aria-labelledby="motifExampleDropdown">
-          <button motifDropdownItem>View profile</button>
-          <button motifDropdownItem>Edit Profile</button>
+          <button motifDropdownItem><motif-icon [iconFunction]=viewProfileFunction()></motif-icon>View profile</button>
+          <button motifDropdownItem><motif-icon [iconFunction]=editProfileFunction()></motif-icon>Edit Profile</button>
           <span class="motif-dropdown-horizontal-divider"></span>
-          <button motifDropdownItem>Settings</button>
+          <button motifDropdownItem  (click)="registerClick()"><motif-icon [iconFunction]=registerIconFunction()></motif-icon>Register</button>
+          <button motifDropdownItem><motif-icon [iconFunction]=settingFunction()></motif-icon>Settings</button>
           <span class="motif-dropdown-horizontal-divider"></span>
-          <button motifDropdownItem>Logout</button>
+          <button motifDropdownItem><motif-icon [iconFunction]=logoutFunction()></motif-icon>Logout</button>
         </div>
       </div>
     </button>
