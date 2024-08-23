@@ -1,17 +1,39 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Route, Router, RouterModule } from '@angular/router';
-import { IconoirBell, IconoirEditPencil, IconoirFavouriteBook, IconoirGridPlus, IconoirHelpCircle, IconoirLogOut, IconoirMoreHoriz, IconoirMultiplePages, IconoirProfileCircle, IconoirSearch, IconoirSettings, MotifActionIcAccountCircle24px, MotifActionIcHome24px, MotifActionIcSettings24px } from '@ey-xd/motif-icon';
-import { MotifHeaderModule, MotifFormsModule, MotifIconModule, MotifAvatarModule, MotifDropdownModule, MotifBadgeModule, MotifVerticalNavigationModule, MotifCardModule, MotifModalModule, MotifModal } from '@ey-xd/ng-motif';
+import { RouterModule } from '@angular/router';
+import { IconoirBell, IconoirFavouriteBook, IconoirHelpCircle, IconoirMoreHoriz, IconoirMultiplePages, IconoirSearch, IconoirSettings, MotifActionIcHome24px, MotifActionIcSettings24px, MotifContentIcAdd24px } from '@ey-xd/motif-icon';
+import { MotifHeaderModule, MotifFormsModule, MotifIconModule, MotifAvatarModule, MotifDropdownModule, MotifBadgeModule, MotifVerticalNavigationModule, MotifCardModule, MotifModalModule, MotifModal, MotifModalConfig, ModalSizes } from '@ey-xd/ng-motif';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { CommonModule } from '@angular/common';
 import { MyModalComponent } from '../my-modal/my-modal.component';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MotifHeaderModule,CommonModule, DashboardComponent, MotifFormsModule, FormsModule, ReactiveFormsModule, HttpClientModule, MotifCardModule, MotifHeaderModule, MotifVerticalNavigationModule, MotifIconModule,DashboardComponent, MotifAvatarModule, FormsModule, CommonModule, RouterModule,HttpClientModule,FormsModule,MotifIconModule,MotifBadgeModule,MotifAvatarModule,MotifDropdownModule,
-    MyModalComponent,MotifModalModule
+  imports: [
+    MotifHeaderModule,
+    CommonModule, 
+    DashboardComponent, 
+    MotifFormsModule, 
+    FormsModule, 
+    ReactiveFormsModule,
+    HttpClientModule, 
+    MotifCardModule, 
+    MotifHeaderModule, 
+    MotifVerticalNavigationModule, 
+    MotifIconModule,
+    DashboardComponent, 
+    MotifAvatarModule, 
+    FormsModule, 
+    CommonModule, 
+    RouterModule,
+    HttpClientModule,
+    FormsModule,
+    MotifBadgeModule,
+    MotifAvatarModule,
+    MotifDropdownModule,
+    MyModalComponent,
+    MotifModalModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
@@ -27,9 +49,12 @@ export class HeaderComponent {
   showMenu:boolean = false;
   modaleheader : string = "";
   items=[{
-    label: 'Dashboard',
+    label: 'Create a Product',
     icon:  function(){
-      return MotifActionIcHome24px;
+      return MotifContentIcAdd24px;
+    },
+    action: () => {
+      this.openModal();
     },
     exact: false,
   },
@@ -37,6 +62,9 @@ export class HeaderComponent {
     label: 'Favourites',
     icon:  function(){
       return IconoirFavouriteBook;
+    },
+    action: () => {
+      
     },
     exact: false,
 
@@ -46,6 +74,9 @@ export class HeaderComponent {
     icon:  function(){
       return MotifActionIcSettings24px;
     },
+    action: () => {
+      
+    },
     exact: false,
 
   },
@@ -53,6 +84,9 @@ export class HeaderComponent {
     label: 'Pages',
     icon:  function(){
       return IconoirMultiplePages;
+    },
+    action: () => {
+      
     },
     exact: false,
 
@@ -93,8 +127,22 @@ constructor(private motifModalService : MotifModal){}
   onLinkPress(e:any,words:any){
 
   }
+
+  modalConfig:MotifModalConfig = {
+    size: ModalSizes.CUSTOM,
+    minWidth: 500
+  }
+
   openModal(){
     this.modaleheader = "Create Using Template"
-    this.motifModalService.open(this.myModal);
+    this.motifModalService.open(this.myModal, this.modalConfig);
   }
+
+  getModalFormData(event: any){
+    debugger
+    if(event){
+      this.motifModalService.closeAll()
+    }
+  }
+  
 }
