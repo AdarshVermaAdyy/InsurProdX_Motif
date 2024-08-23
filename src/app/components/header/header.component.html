@@ -113,6 +113,7 @@ style="--height: calc(100vh - 85px); position: fixed; z-index: 9999;"
         [routerLink]="item.routerLink"
         vertical-navigation-menu-item-active
         [verticalNavigationMenuItemActiveOptions]="{exact: item.exact}"
+        (click)="openModal()"
       >
         <motif-icon *ngIf="item?.icon" [iconFunction]="item?.icon()"></motif-icon>
         <span>{{item?.label}}</span>
@@ -265,3 +266,6 @@ style="--height: calc(100vh - 85px); position: fixed; z-index: 9999;"
   </li> -->
 </ul>
 </nav>
+<ng-template #myModal>
+  <app-my-modal [modalHeader]="modaleheader"></app-my-modal>
+</ng-template>
