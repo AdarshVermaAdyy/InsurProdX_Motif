@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
-import { MotifButtonModule, MotifCardModule, MotifTableModule } from '@ey-xd/ng-motif';
+import { MotifButtonModule, MotifCardModule, MotifContentSwitcherModule, MotifTableModule } from '@ey-xd/ng-motif';
 import { HttpClientModule } from '@angular/common/http';
 import{ BaseChartDirective } from 'ng2-charts';
 import { Chart, Legend, plugins } from 'chart.js/auto';
@@ -13,11 +13,13 @@ import { callback } from 'chart.js/dist/helpers/helpers.core';
 @Component({
   selector: 'app-charts',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, CanvasJSAngularChartsModule,MotifTableModule,HttpClientModule,MotifCardModule,MotifButtonModule, DashboardComponent, BaseChartDirective ],
+  imports: [RouterOutlet, CommonModule,MotifContentSwitcherModule, CanvasJSAngularChartsModule,MotifTableModule,HttpClientModule,MotifCardModule,MotifButtonModule, DashboardComponent, BaseChartDirective ],
   templateUrl: './charts.component.html',
   styleUrl: './charts.component.scss'
 })
 export class ChartsComponent implements OnInit{
+  Options = [{ value: 'Create a product', seleced: true }, { value: 'Modify a product',seleced: false }, { value: 'FAQ',seleced: false }, { value: 'Push Notification',seleced: false },];
+
    chartData: any=[];
    monthltyChart:any=[];
    lableData: string[]=[];
@@ -29,15 +31,15 @@ export class ChartsComponent implements OnInit{
    monthlyrealData: number[]=[];
    monthlycolourData: string[]=[];
    chart : any;
-   
+
  constructor( private service: ChartsService) {}
 
    ngOnInit(): void {
-  
+
     this.loadChartData();
   }
   loadChartData(){
-    
+
     this.chartData = this.service.loadSalesData();
      this.monthltyChart = this.service.loadMonthlySalesData();
     if(this.chartData !== null){
@@ -62,7 +64,7 @@ export class ChartsComponent implements OnInit{
   renderBarChart(labeldata:string[], valuedata:any, colordata:any, lableType:any){
     console.log("labelData, valueData, coloru , lableType"+ labeldata, valuedata, colordata, lableType);
     this.RenderChart(labeldata,valuedata,colordata, lableType, 'barchart', 'bar');
-    
+
   }
   renderPieChart(labeldata:string[], valuedata:any, colordata:any, lableType:any){
     this.RenderChart(labeldata,valuedata,colordata,lableType, 'piechart', 'pie');
@@ -146,5 +148,5 @@ export class ChartsComponent implements OnInit{
     });
   }
 
-  
+
 }

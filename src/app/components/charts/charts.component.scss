@@ -8,11 +8,10 @@
     flex: 1 1 100px;
   }
   .container{
-    display: flex;
+margin-top: 100px;
     height: 100px;
-    margin-bottom: 200px;
     margin-right: 100px;
-    margin-left: 300px;
+    margin-left: 130px;
   }
 //   .third {
 //     flex: 1; /* Each div will take up an equal amount of space */
@@ -30,6 +29,7 @@
   margin-bottom: 5px;
   justify-content: center;
   margin-left: 50px;
+  margin-top: 80px;
 }
 .grid-item{
   display: flex;

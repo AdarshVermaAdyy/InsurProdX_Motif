@@ -1,22 +1,24 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { MotifTableModule } from '@ey-xd/ng-motif';
+import { MotifContentSwitcherModule, MotifTableModule } from '@ey-xd/ng-motif';
 import { MotifCardModule,MotifButtonModule } from '@ey-xd/ng-motif';
 import { Chart, registerables } from 'chart.js';
 import { InsurTableComponent } from "../insur-table/insur-table.component";
 import { MotifIconModule } from '@ey-xd/ng-motif';
 import {MotifMapsIcDirectionsCar24px,IconoirViewGrid, MotifMapsIcLocalTaxi24px,MotifActionIcCardTravel24px,MotifActionIcAccessibility24px ,MotifActionIcPets24px,IconoirBuilding,MotifSocialIcPeople24px,MotifMapsIcFlight24px,IconoirUmbrella,MotifMapsIcDirectionsBike24px,IconoirHealthcare} from '@ey-xd/motif-icon';
 import { Router, RouterModule } from '@angular/router';
+import { ButtonSizes } from '@ey-xd/ng-motif'
 Chart.register(...registerables)
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [MotifTableModule, HttpClientModule, MotifCardModule, MotifButtonModule, InsurTableComponent,MotifIconModule, RouterModule],
+  imports: [MotifTableModule,MotifContentSwitcherModule, HttpClientModule, MotifCardModule, MotifButtonModule, InsurTableComponent,MotifIconModule, RouterModule],
 
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
 export class TableComponent {
+
   chart:any;
   myInvestment(){
     return MotifActionIcCardTravel24px;

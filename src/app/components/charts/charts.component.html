@@ -1,29 +1,44 @@
 
 <!-- <div class="container">
 <div class="row">
-  
+
   <motif-card orientation="vertical" cardVariant="card-border">
-   
+
   <canvas id="doughnutchart">{{chart}}</canvas>
 </motif-card>
 
 
 
 <motif-card orientation="vertical" cardVariant="card-border"  >
-  
+
   <canvas id="barchart" width="400" height="200">{{chart}}</canvas>
 
 </motif-card>
 
 
 <motif-card orientation="vertical" cardVariant="card-border" >
- 
+
   <canvas id="piechart">{{chart}}</canvas>
 
 </motif-card>
 
 </div>
 </div> -->
+<!-- <div class="container">
+
+
+<motif-content-switcher>
+  @for (option of Options; track option) {
+  <motif-content-switcher-option
+    [value]="option.value"
+    [selected]="option.seleced"
+  ></motif-content-switcher-option>
+  }
+</motif-content-switcher>
+
+</div> -->
+
+
 <div class="grid-container">
   <div class="grid-item"> <canvas id="doughnutchart">{{chart}}</canvas></div>
   <div class="grid-item"><canvas id="barchart" height="200">{{chart}}</canvas></div>
