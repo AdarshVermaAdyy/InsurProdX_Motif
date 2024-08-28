@@ -10,6 +10,9 @@ import { ContainerComponent } from './components/container/container.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
+  {
+    path: 'product',loadChildren:()=>import('./product/product.module').then(m=>m.ProductModule)
+  },
   {path:'signup', component:SignupComponent},
   {path:'dashboard',component:DashboardComponent, canActivate:[authGuard]},
   {path:'product-details', component: ProductDetailsComponent},
