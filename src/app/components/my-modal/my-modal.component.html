@@ -1,0 +1,31 @@
+<motif-modal-title>
+    <h2>{{modalHeader}}</h2>
+    <motif-icon [motifModalClose] [iconFunction]="modalCloseIcon()"></motif-icon>
+</motif-modal-title>
+<motif-modal-content>
+    <form [formGroup]="modalForm">
+        <div class="form-wrapper">
+            <div>
+                <motif-form-field>
+                    <label motifLabel for="category">Select Category of Product</label>
+                    <motif-select formControlName="category" aria-label="Aria Label" validationInteraction="touched"
+                        id="category">
+                        <motif-option value="life_insurance">Life Insurance</motif-option>
+                    </motif-select>
+                </motif-form-field>
+            </div>
+            <div>
+                <motif-form-field class="mt-3">
+                    <label motifLabel for="subCategory">Select Sub-Category of Product</label>
+                    <motif-select formControlName="subCategory" aria-label="Aria Label" validationInteraction="touched"
+                        id="subCategory">
+                        <motif-option [value]="item" *ngFor="let item of subCategories">{{item}}</motif-option>
+                    </motif-select>
+                </motif-form-field>
+            </div>
+        </div>
+    </form>
+</motif-modal-content>
+<motif-modal-actions>
+    <button motifButton (onclick)="submit()">Submit</button>
+</motif-modal-actions>
