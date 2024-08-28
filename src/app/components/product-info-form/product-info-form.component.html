@@ -1,0 +1,189 @@
+<div class="container mt-5">
+    <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+      <div class="motif-row">
+        <!-- Available Options -->
+        <div class="motif-col-xs-1">
+          <h4>Available Options</h4>
+          <div formArrayName="options">
+            <div *ngFor="let option of availableOptions; let i = index" class="mb-2">
+              <input motifInput type="checkbox" [formControlName]="i" (change)="onCheckboxChange($event, i)" [disabled]="isDefaultField(option)" />
+              {{ option.label }}
+            </div>
+          </div>
+        </div>
+  
+        <!-- Dynamic Form Fields -->
+        <div class="motif-col-xs-3">
+          <!-- Product Boundary Condition -->
+          <h4>Product Boundary Condition</h4>
+          <div formArrayName="selectedValues">
+            <div formArrayName="productBoundaryCondition">
+                <div class="motif-row">
+              <div *ngFor="let field of productBoundaryCondition.controls; let i = index" [formGroupName]="i" class="motif-col-xs-2 mb-2">
+                <div [ngSwitch]="field.get('type')?.value">
+                  <div *ngSwitchCase="'range'">
+                    
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                    <motif-form-field>
+                    <div class="motif-row">
+                      <div class="motif-col-xs-4 motif-col-md-4">
+                        <label  motifLabel for="min{{i}}">Min:</label>
+                        <input motifInput id="min{{i}}" type="number" formControlName="min" class="form-control" />
+                      </div>
+                      <div class="motif-col-xs-4 motif-col-md-4">
+                        <label  motifLabel for="max{{i}}">Max:</label>
+                        <input motifInput id="max{{i}}" type="number" formControlName="max" class="form-control" />
+                      </div> 
+                    </div>
+                    </motif-form-field>
+                  </div>
+                  <div *ngSwitchCase="'dropdown'">
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                   
+                    <motif-select formControlName="value" class="form-control">
+                      <motif-option *ngFor="let option of field.get('options')?.value" [value]="option">{{ option }}</motif-option>
+                    </motif-select>
+                
+                  </div>
+                  <motif-form-field>
+                  <div *ngSwitchCase="'text'">
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                    <input motifInput type="text" formControlName="value" class="form-control" />
+                  </div>
+                </motif-form-field>
+                  <div *ngSwitchCase="'radio'">
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                    <div *ngFor="let option of field.get('options')?.value">
+                      <input motifInput type="radio" [formControlName]="'value'" [value]="option" /> {{ option }}
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="field.get('value')?.invalid && (field.get('value')?.dirty || field.get('value')?.touched)" class="text-danger">
+                  <div *ngIf="field.get('value')?.errors?.['required']">This field is required</div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+  
+          <!-- Premium Details -->
+          <h4>Product Service - Non-financial Alterations</h4>
+          <div formArrayName="selectedValues">
+            <div formArrayName="premiumDetails">
+                <div class="motif-row">
+              <div *ngFor="let field of premiumDetails.controls; let i = index" [formGroupName]="i" class="motif-col-xs-2 mb-2">
+                <div [ngSwitch]="field.get('type')?.value">
+                  <div *ngSwitchCase="'dropdown'">
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                    <motif-select formControlName="value" class="form-control">
+                      <motif-option *ngFor="let option of field.get('options')?.value" [value]="option">{{ option }}</motif-option>
+                    </motif-select>
+                  </div>
+                  <div *ngSwitchCase="'radio'">
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                    <div *ngFor="let option of field.get('options')?.value">
+                      <input motifInput type="radio" [formControlName]="'value'" [value]="option" /> {{ option }}
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="field.get('value')?.invalid && (field.get('value')?.dirty || field.get('value')?.touched)" class="text-danger">
+                  <div *ngIf="field.get('value')?.errors?.['required']">This field is required</div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- FeauterReinstate -->
+          <h4>Feature/Reinstatement</h4>
+          <div formArrayName="selectedValues">
+            <div formArrayName="featreandReinsate">
+                <div class="motif-row">
+              <div *ngFor="let field of featreandReinsate.controls; let i = index" [formGroupName]="i" class="motif-col-xs-2 mb-2">
+                <div [ngSwitch]="field.get('type')?.value">
+                  <div *ngSwitchCase="'dropdown'">
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                    <motif-select formControlName="value" class="form-control">
+                      <motif-option *ngFor="let option of field.get('options')?.value" [value]="option">{{ option }}</motif-option>
+                    </motif-select>
+                  </div>
+                  <div *ngSwitchCase="'radio'">
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                    <div *ngFor="let option of field.get('options')?.value">
+                      <input motifInput type="radio" [formControlName]="'value'" [value]="option" /> {{ option }}
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="field.get('value')?.invalid && (field.get('value')?.dirty || field.get('value')?.touched)" class="text-danger">
+                  <div *ngIf="field.get('value')?.errors?.['required']">This field is required</div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Servicing- Major Alterations -->
+          <h4>Product Servicing- Major Alterations</h4>
+          <div formArrayName="selectedValues">
+            <div formArrayName=" productServicingAlteration">
+                <div class="motif-row">
+              <div *ngFor="let field of  productServicingAlteration.controls; let i = index" [formGroupName]="i" class="motif-col-xs-2 mb-2">
+                <div [ngSwitch]="field.get('type')?.value">
+                  <div *ngSwitchCase="'dropdown'">
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                    <motif-select formControlName="value" class="form-control">
+                      <motif-option *ngFor="let option of field.get('options')?.value" [value]="option">{{ option }}</motif-option>
+                    </motif-select>
+                  </div>
+                  <div *ngSwitchCase="'radio'">
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                    <div *ngFor="let option of field.get('options')?.value">
+                      <input motifInput type="radio" [formControlName]="'value'" [value]="option" /> {{ option }}
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="field.get('value')?.invalid && (field.get('value')?.dirty || field.get('value')?.touched)" class="text-danger">
+                  <div *ngIf="field.get('value')?.errors?.['required']">This field is required</div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Termination/Cancellation/Claims -->
+          <h4>Termination/Cancellation/Claims</h4>
+          <div formArrayName="selectedValues">
+            <div formArrayName=" terminationCancellation">
+                <div class="motif-row">
+              <div *ngFor="let field of terminationCancellation.controls; let i = index" [formGroupName]="i" class="motif-col-xs-2 mb-2">
+                <div [ngSwitch]="field.get('type')?.value">
+                  <div *ngSwitchCase="'dropdown'">
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                    <motif-select formControlName="value" class="form-control">
+                      <motif-option *ngFor="let option of field.get('options')?.value" [value]="option">{{ option }}</motif-option>
+                    </motif-select>
+                  </div>
+                  <div *ngSwitchCase="'radio'">
+                    <label  motifLabel>{{ field.get('label')?.value }}:</label>
+                    <div *ngFor="let option of field.get('options')?.value">
+                      <input motifInput type="radio" [formControlName]="'value'" [value]="option" /> {{ option }}
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="field.get('value')?.invalid && (field.get('value')?.dirty || field.get('value')?.touched)" class="text-danger">
+                  <div *ngIf="field.get('value')?.errors?.['required']">This field is required</div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <div class="form-btn-wrapper">
+                <button motifButton size="medium" class="mt-3" (click)="onSubmit()">Save as Draft</button>
+                <button motifButton size="medium" class="mt-3" (click)="next()">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
