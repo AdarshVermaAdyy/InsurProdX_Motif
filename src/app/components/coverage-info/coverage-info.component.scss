@@ -1,0 +1,41 @@
+.wrapper-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(10em,1fr));
+  grid-gap: 1rem;
+  gap: 10px;
+  margin-left: 280px;
+  margin-top: 50px;
+  margin-right: 20px;
+  margin-top: 100px;
+}
+
+.field-wrapper{
+  display: grid;
+
+  gap: 1rem;
+}
+.form-wrapper{
+  display: grid;
+  border: 1px solid grey;
+  padding: 20px;
+  width: 80%;
+  border-radius: 5px;
+}
+.motif-row{
+  margin-bottom: 10px;
+}
+.form-btn-wrapper{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.container{
+  display: grid;
+
+}
+.sidenav{
+  position: fixed;
+  display: grid;
+  border: 1px solid grey;
+  margin-left: 70px;
+}

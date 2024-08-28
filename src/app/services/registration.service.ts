@@ -14,4 +14,5 @@ export class RegistrationService {
   fetchCountries(): Observable<any[]>{
     return this.api.get(this.countryUrl);
   }
+
 }

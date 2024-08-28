@@ -8,6 +8,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { authGuard } from './guards/auth.guard';
 import { ContainerComponent } from './components/container/container.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { CoverageInfoComponent } from './components/coverage-info/coverage-info.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'register', component: RegistrationComponent},
   {path: 'insur-table', component: InsurTableComponent},
   {path:'grid',component:ContainerComponent},
-  {path:'drop',component:DropdownComponent}
+  {path:'drop',component:DropdownComponent},
+  {path:'coverage',component:CoverageInfoComponent}
 ];
 
 @NgModule({
