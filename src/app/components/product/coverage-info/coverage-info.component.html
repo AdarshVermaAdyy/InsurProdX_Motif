@@ -1,0 +1,184 @@
+<div class="wrapper-container">
+    <div class="field-list-wrapper">
+      <div *ngFor="let field of optionalFieldsList; let i = index">
+          <motif-checkbox type="text" motifInput (change)="addRemoveControls($event, field, i)">
+              {{field.label}}
+          </motif-checkbox>
+      </div>
+  </div>
+   
+    <div class="form-wrapper">
+   
+        <motif-toast [autoHide]="true" type='error' [duration]="5000" [show]="showErrorToast" actionText="Learn more"
+            ariaLabelCloseButton="Close info toast message">
+            <ng-container>
+                Please fill all mandatory fields.
+            </ng-container>
+        </motif-toast>
+   
+        <form [formGroup]="userForm" class="container">
+            <div class="motif-row">
+                <div class="motif-col-lg-4" *ngIf="showField1">
+                    <motif-form-field>
+                        <label motifLabel for="coverage_code1">Coverage Code 1</label>
+                        <input id="coverage_code1" motifInput type="text" aria-label="Input" formControlName="coverage_code1"
+                            validationInteraction="touched" />
+                        <div class="error-msg" *ngIf="(coverage_code1?.invalid) && (coverage_code1?.dirty || coverage_code1?.touched)">
+                            <span *ngIf="coverage_code1?.errors?.['required']">This information is required.</span>
+                        </div>
+                    </motif-form-field>
+                </div>
+                <div class="motif-col-lg-4" *ngIf="showField2" >
+                    <motif-form-field>
+                        <label motifLabel>Coverage Name 1</label>
+                        <input motifInput type="text" aria-label="Input" formControlName="coverage_name1"
+                            validationInteraction="touched" />
+                    </motif-form-field>
+                </div>
+                <div class="motif-col-lg-4" *ngIf="showField4">
+                  <motif-form-field>
+                      <label motifLabel>Covergae Amount</label>
+                      <input motifInput type="coverage_amount" aria-label="Input" formControlName="coverage_amount"
+                          validationInteraction="touched" />
+                      <div class="error-msg" *ngIf="(coverage_amount?.invalid) && (coverage_amount?.dirty || coverage_amount?.touched)">
+                          <span *ngIf="coverage_amount?.errors?.['required']">This information is required.</span>
+                          <span *ngIf="coverage_amount?.errors?.['pattern']">Please enter Coverge amount.</span>
+                      </div>
+                  </motif-form-field>
+              </div>
+   
+            </div>
+            <div class="motif-row">
+   
+                <div class="motif-col-lg-4" *ngIf="showField5">
+                    <motif-form-field>
+                        <label motifLabel>Coverage Term</label>
+                        <input motifInput type="text" aria-label="Input" formControlName="coverage_term"
+                            validationInteraction="touched" />
+                        <div class="error-msg" *ngIf="(coverage_term?.invalid) && (coverage_term?.dirty || coverage_term?.touched)">
+                            <span *ngIf="coverage_term?.errors?.['required']">This information is required.</span>
+                            <span *ngIf="coverage_term?.errors?.['pattern']">Please enter Coverage Term.</span>
+                        </div>
+                    </motif-form-field>
+                </div>
+                <div class="motif-col-lg-4" *ngIf="showField6">
+                  <motif-form-field>
+                      <label motifLabel>Coverage Effective Date</label>
+                      <input name="coverage_effective_date1" formControlName="coverage_effective_date1" [motifDatePicker]="dob" placeholder="Select date"
+                          [motifDatePickerTrigger]="dob" selectMode="single" />
+                      <motif-date-picker #dob></motif-date-picker>
+                      <!-- <div class="error-msg" *ngIf="dob('required')">
+                          <span>This information is required.</span>
+                      </div> -->
+                  </motif-form-field>
+              </div>
+              <div class="motif-col-lg-4" *ngIf="showField7">
+                <motif-form-field>
+                    <label motifLabel>Coverage Expiry Date</label>
+                    <input name="coverage_expiry_date" formControlName="coverage_expiry_date" [motifDatePicker]="coverage_expiry_date" placeholder="Select date"
+                        [motifDatePickerTrigger]="coverage_expiry_date" selectMode="single" />
+                    <motif-date-picker #coverage_expiry_date></motif-date-picker>
+                    <!-- <div class="error-msg" *ngIf="dob('required')">
+                        <span>This information is required.</span>
+                    </div> -->
+                </motif-form-field>
+            </div>
+            </div>
+            <div class="row">
+              <div class="motif-col-lg-6" *ngIf="showField9">
+                <motif-form-field>
+                    <!-- //<label motifLabel>Waiting Time</label> -->
+                    <motif-select formControlName="waiting_period" aria-label="Aria Label" validationInteraction="touched" placeholder="Waiting Time"
+                        selectTitle="Custom select title" >
+                        <motif-option *ngFor="let wait of waitTime"
+                            [value]="wait">{{wait}}</motif-option>
+                    </motif-select>
+                    <div class="error-msg" *ngIf="(waiting_period?.invalid) && (waiting_period?.dirty || waiting_period?.touched)">
+                        <span *ngIf="waiting_period?.errors?.['required']">This information is required.</span>
+                    </div>
+                </motif-form-field>
+            </div>
+            <div class="motif-col-lg-6" *ngIf="showField3">
+              <motif-form-field>
+              <!-- <label motifLabel>Coverage Type</label> -->
+                  <motif-select formControlName="coverage_type1" aria-label="Aria Label" validationInteraction="touched"
+                      selectTitle="Custom select title" [filter]="true" placeholder="Coverage Type">
+                      <motif-option *ngFor="let cover of coverageType"
+                          [value]="cover">{{cover}}</motif-option>
+                  </motif-select>
+                  <div class="error-msg" *ngIf="(coverage_type1?.invalid) && (coverage_type1?.dirty || coverage_type1?.touched)">
+                      <span *ngIf="coverage_type1?.errors?.['required']">This information is required.</span>
+                  </div>
+              </motif-form-field>
+          </div>
+            </div>
+            <br>
+   
+            <div class="motif-row">
+              <div class="motif-col-lg-4" *ngIf="optionalFieldsList[0].isVisible">
+                  <motif-form-field>
+                      <label motifLabel>Coverage structure</label>
+                      <input type="text" motifInput formControlName="Coveragestructure" />
+                  </motif-form-field>
+              </div>
+              <div class="motif-col-lg-4" *ngIf="optionalFieldsList[1].isVisible">
+                  <motif-form-field>
+                      <label motifLabel>Beneficiary Category</label>
+                      <input type="text" motifInput formControlName="Beneficiarycategory" />
+                  </motif-form-field>
+              </div>
+              <div class="motif-col-lg-4" *ngIf="optionalFieldsList[2].isVisible">
+                <motif-form-field>
+                    <label motifLabel>Supplemental Death Benefit</label>
+                    <input type="text" motifInput formControlName="Supplementaldeathbenefit" />
+                </motif-form-field>
+            </div>
+          </div>
+   
+   
+   
+            <div class="motif-row">
+                <div class="motif-col-lg-4 " *ngIf="showField8">
+                    <motif-form-field>
+                        <label motifLabel>Coverage Premium</label>
+                        <input motifInput type="text" aria-label="Input" formControlName="coverage_premium"
+                            validationInteraction="touched" />
+                        <div class="error-msg" *ngIf="coverage_premium?.invalid && (coverage_premium?.dirty || coverage_premium?.touched)">
+                            <span *ngIf="coverage_premium?.errors?.['required']">This information is required.</span>
+                        </div>
+                    </motif-form-field>
+                </div>
+                <div class="motif-col-lg-4" *ngIf="showField10">
+                  <motif-form-field>
+                    <label motifLabel>Coverage Condition</label>
+                    <textarea
+                      motifInput
+                      aria-label="Coverage Condition"
+                      class="motif-textarea"
+                    ></textarea>
+                  </motif-form-field>
+                </div>
+   
+            </div>
+   
+   
+   
+   
+   
+   
+   
+            <div class="form-btn-wrapper">
+                <button motifButton size="medium" class="mt-3" (click)="saveNewUser()">Save as Draft</button>
+                <button motifButton size="medium" class="mt-3" (click)="reset()">Next</button>
+            </div>
+        </form>
+        <!-- <div style="padding: 14px">
+            <motif-toast [autoHide]="true" type='success' [duration]="5000" [show]="showSuccessToast" actionText="Learn more"
+                ariaLabelCloseButton="Close info toast message">
+                <ng-container>
+                    Successfully updated profile
+                </ng-container>
+            </motif-toast>
+        </div> -->
+    </div>
+  </div>
