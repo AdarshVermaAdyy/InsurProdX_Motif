@@ -8,61 +8,59 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 export class ProductInfoService {
 
   private availableOptions = [
-    { id: 1, label: "Entity Age", type: "range", min: 18, max: 50, group: 'productBoundaryCondition' },
-    { id: 2, label: "Maturity Age", type: "range", min: 10, max: 15, group: 'productBoundaryCondition' },
-    { id: 3, label: "Premium Payment Frequency", type: 'dropdown', options: ['Half Yearly', 'Yearly', 'Other'], group: 'productBoundaryCondition', defaultValue:'Yearly' },
-    { id: 4, label: "PT (In Year)", type: 'dropdown', options: ['10', '20', '30'], group: 'productBoundaryCondition' },
+    { id: 1, label: "Entity Age", type: "range", min: 18, max: 65, group: 'productBoundaryCondition' },
+    { id: 2, label: "Maturity Age", type: "range", min: 28, max: 65, group: 'productBoundaryCondition' },
+    { id: 3, label: "Premium Payment Frequency", type: 'dropdown', options: ['Yearly', 'Half Yearly', 'Quaterly', 'Monthly'], group: 'productBoundaryCondition', defaultValue:'Half Yearly' },
+    { id: 4, label: "Premium Payment Type", type: "radio", options: ['Regular', 'Limited'], group: 'productBoundaryCondition' },
     { id: 5, label: "Premium", type: "range", min: 1500, max: 300000, group: 'productBoundaryCondition' },
-    { id: 6, label: "PT (In Year)", type: 'dropdown', options: ['10', '20', '30'], group: 'productBoundaryCondition' },
-    { id: 7, label: "Sum Assured", type: "range", min: 1500, max: 3000, group: 'productBoundaryCondition' },
-    // { id: 7, label: "Premium Payment Type", type: "radio", options: ['Regular', 'Limited'], group: 'productBoundaryCondition' },
+    { id: 6, label: "PT (In Year)", type: 'dropdown', options: ['5','10', '15', '20'], group: 'productBoundaryCondition' },
+    { id: 7, label: "Add PPT Combination (In Year)", type: 'dropdown', options: ['5','7', '10', '12', '13'], group: 'productBoundaryCondition' },
+    { id: 8, label: "PT (In Year)", type: 'dropdown', options: ['10', '20', '30'], group: 'productBoundaryCondition' },
+    { id: 9, label: "Sum Assured", type: "range", min: 100000, max: 300000, group: 'productBoundaryCondition' },
+    { id: 10, label: "Add PPT Combination (In Year)", type: 'dropdown', options: ['5','7', '10', '12', '13'], group: 'productBoundaryCondition' },
     // { id: 5, label: "Gender", type: 'dropdown', options: ['Male', 'Female', 'Other'], group: 'productBoundaryCondition' },
     // { id: 6, label: "Username", type: "text", value: "ahakal", group: 'productBoundaryCondition' },
-    { id: 8, label: "Grace Period", type: 'dropdown', options: ['15', '30', '45'], group: 'productBoundaryCondition' },
-    { id: 9, label: "BackDating", type: 'dropdown', options: ['Yes', 'No'], group: 'productBoundaryCondition' },
-    { id: 9, label: "Change of Name", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 10, label: "Appointee Change", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 11, label: "Letters", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 12, label: "Nach Registration", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 13, label: "Change of Owner", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 14, label: "Change of Nominee", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 15, label: "Assignment/Reassignment", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 16, label: "Change of Address", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 17, label: "Change of Freq", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 18, label: "Change of Contact Details", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 19, label: "Change in PAN", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 20, label: "Duplicate policy Number", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 21, label: "EIA", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 22, label: "Change in Occupation", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 23, label: "Change of PEP", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 24, label: "Change in UID", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 25, label: "Certification of Existance", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 26, label: "Policy Search UI", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
-    { id: 27, label: "Lapse", type: 'dropdown', options: ['LAPSE30', 'LAPSE20'], group: 'featreandReinsate' },
-    { id: 28, label: "Revival", type: 'dropdown', options: ['REVV30', 'REVV20'], group: 'featreandReinsate' },
-    { id: 29, label: "Increase/Decrease in Service", type: 'dropdown', options: ['Allowed4', 'Allowed6'], group: 'productServicingAlteration' },
-    { id: 30, label: "Change of DOB", type: 'dropdown', options: ['Allowed4', 'Allowed6'], group: 'productServicingAlteration' },
-    { id: 31, label: "Change of Gender", type: 'dropdown', options: ['Allowed', 'NotAllowed'], group: 'productServicingAlteration' },
-    { id: 32, label: "Change of PT/FT", type: 'dropdown', options: ['Allowed', 'NotAllowed'], group: 'productServicingAlteration' },
-    { id: 33, label: "Change of Premium", type: 'dropdown', options: ['Allowed', 'NotAllowed'], group: 'productServicingAlteration' },
-    { id: 34, label: "Free Look Period Cancell", type: 'dropdown', options: ['FP15', 'FP16'], group: 'terminationCancellation' },
+    { id: 11, label: "Grace Period", type: 'dropdown', options: ['15', '30', '60'], group: 'productBoundaryCondition' },
+    { id: 12, label: "BackDating", type: 'dropdown', options: ['Yes', 'No'], group: 'productBoundaryCondition' },
+   
+   
+    { id: 13, label: "Change of Name", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 14, label: "Appointee Change", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 15, label: "Letters", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 16, label: "Nach Registration", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 17, label: "Change of Owner", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 18, label: "Change of Nominee", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 19, label: "Assignment/Reassignment", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 20, label: "Change of Address", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 21, label: "Change of Freq", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 22, label: "Change of Contact Details", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 23, label: "Change in PAN", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 24, label: "Duplicate policy Number", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 25, label: "EIA", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 26, label: "Change in Occupation", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 27, label: "Change of PEP", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 28, label: "Change in UID", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 29, label: "Certification of Existance", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+    { id: 30, label: "Policy Search UI", type: 'dropdown', options: ['Yes', 'No'], group: 'premiumDetails' },
+
+    { id: 31, label: "Lapse", type: 'dropdown', options: ['LAPSE30', 'LAPSE1530', 'NA'], group: 'featreandReinsate' },
+    { id: 32, label: "Revival", type: 'dropdown', options: ['REVIV30', 'REVIV75', 'REVIVTS','REVIVT5', 'REVIVT3', 'REVIVE', 'NA'], group: 'featreandReinsate' },
+
+    { id: 33, label: "Increase/Decrease in Service", type: 'dropdown', options: ['Allowed4', 'Allowed6'], group: 'productServicingAlteration' },
+    { id: 34, label: "Change of DOB", type: 'dropdown', options: ['Allowed4', 'Allowed6'], group: 'productServicingAlteration' },
+    { id: 35, label: "Change of Gender", type: 'dropdown', options: ['Allowed', 'NotAllowed'], group: 'productServicingAlteration' },
+    { id: 36, label: "Change of PT/FT", type: 'dropdown', options: ['Allowed', 'NotAllowed'], group: 'productServicingAlteration' },
+    { id: 37, label: "Change of Premium", type: 'dropdown', options: ['Allowed', 'NotAllowed'], group: 'productServicingAlteration' },
+
+    { id: 38, label: "Free Look Period Cancell", type: 'dropdown', options: ['FP15', 'FP16'], group: 'terminationCancellation' },
     
-    { id: 35, label: "Death Claim", type: 'dropdown', options: ['DLUMP', 'DLUGP'], group: 'terminationCancellation' },
-    { id: 36, label: "Surrender", type: 'dropdown', options: ['SUR1', 'SUR2'], group: 'terminationCancellation' },
-    { id: 37, label: "Maturity", type: 'dropdown', options: ['M0BEN', 'M1BEN'], group: 'terminationCancellation' },
+    { id: 39, label: "Death Claim", type: 'dropdown', options: ['DPRP', 'DSING', 'DLUMP','DMNIC5', 'NA'], group: 'terminationCancellation' },
+    { id: 40, label: "Surrender", type: 'dropdown', options: ['SURNORM', 'SUR3', 'SUR0BEN'], group: 'terminationCancellation' },
+    { id: 41, label: "Maturity", type: 'dropdown', options: ['M0BEN', 'MTERM', 'NA'], group: 'terminationCancellation' },
     
-    { id: 37, label: "Policy Cancellation", type: 'dropdown', options: ['POLC', 'POLNA'], group: 'terminationCancellation' },
+    { id: 42, label: "Policy Cancellation", type: 'dropdown', options: ['POLC', 'NA'], group: 'terminationCancellation' },
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   // { id: 10, label: "Premium Payment Type", type: "radio", options: ['Regular', 'Limited'], group: 'premiumDetails' }
+
   ];
 
   constructor(private fb: FormBuilder) {}
@@ -103,6 +101,7 @@ export class ProductInfoService {
         featreandReinsate: this.fb.array([]),
         productServicingAlteration: this.fb.array([]),
         terminationCancellation: this.fb.array([]),
+        productBoundary: this.fb.array([]),
 
       })
     });
@@ -131,6 +130,10 @@ export class ProductInfoService {
       const terminationCancellation = this.availableOptions
       .filter(option => option.group === 'terminationCancellation')
       .map(option => this.createDynamicFormGroup(option.label, option.type, option));
+
+      
+
+      
 
     const productBoundaryFormArray = form.get('selectedValues.productBoundaryCondition') as FormArray;
     const premiumDetailsFormArray = form.get('selectedValues.premiumDetails') as FormArray;

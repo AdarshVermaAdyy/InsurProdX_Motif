@@ -23,9 +23,25 @@ export class ProductInfoFormComponent {
   isSubmitted = false;
   dynamicForm: FormGroup;
   availableOptions: any[];
-
+  toastType = '';
+  showErrorToast = false;
+  showSuccessToast = false;
+  optionalFieldsList: any = [
+    { id: 41, label: "Product Start Date", type: "range", min: 18, max: 50, group: 'productBoundary' },
+    { id: 42, label: "Product End Date", type: "range", min: 18, max: 50, group: 'productBoundary' },
+    { id: 43, label: "Comunication Preferences", type: 'dropdown', options: ['Allowed', 'NotAllowed'], group: 'productServicingAlteration' },
+    { id: 44, label: "Beneficiary Update Process", type: 'dropdown', options: ['Allowed', 'NotAllowed'], group: 'productServicingAlteration' },
+    { id: 45, label: "Termination Reason Code", type: 'dropdown', options: ['TERM1', 'TERM2'], group: 'terminationCancellation' },
+    { id: 42, label: "Premium Adjustment Option", type: 'dropdown', options: ['POLC', 'NA'], group: 'PremiumandPaymentDetail' },
+    { id: 42, label: "Premium Loading", type: 'dropdown', options: ['POLC', 'NA'], group: 'PremiumandPaymentDetail' },
+    { id: 42, label: "Premium Payment Methods", type: 'dropdown', options: ['POLC', 'NA'], group: 'PremiumandPaymentDetail' },
+    { id: 42, label: "Payment Frequency Change", type: 'dropdown', options: ['POLC', 'NA'], group: 'PremiumandPaymentDetail' },
+    { id: 42, label: "Partial Payment Option", type: 'dropdown', options: ['POLC', 'NA'], group: 'PremiumandPaymentDetail' },
+    { id: 42, label: "Payment Reschedulting", type: 'dropdown', options: ['POLC', 'NA'], group: 'PremiumandPaymentDetail' },
+  ]
   constructor(private fb: FormBuilder, private formService: ProductInfoService) {}
-
+  
+ 
   ngOnInit() {
     this.availableOptions = this.formService.getAvailableOptions();
     this.dynamicForm = this.formService.initializeForm();
@@ -39,6 +55,10 @@ export class ProductInfoFormComponent {
   get productBoundaryCondition(): FormArray {
     return this.dynamicForm.get('selectedValues.productBoundaryCondition') as FormArray;
   }
+  
+  get productBoundary(): FormArray {
+    return this.dynamicForm.get('selectedValues.productBoundary') as FormArray; 
+  }
 
   get premiumDetails(): FormArray {
     return this.dynamicForm.get('selectedValues.premiumDetails') as FormArray;
@@ -46,6 +66,11 @@ export class ProductInfoFormComponent {
   get  featreandReinsate(): FormArray {
     return this.dynamicForm.get('selectedValues.featreandReinsate') as FormArray;
   }
+
+  get selectedGroupIds(): FormArray {
+    return this.dynamicForm.get('selectedValues') as FormArray;
+  }
+  
   get  terminationCancellation(): FormArray {
     return this.dynamicForm.get('selectedValues.terminationCancellation') as FormArray;
   }
@@ -54,10 +79,9 @@ export class ProductInfoFormComponent {
     return this.dynamicForm.get('selectedValues.productServicingAlteration') as FormArray;
   }
   addCheckboxes() {
-    this.availableOptions.forEach((option, index) => {
+    this.optionalFieldsList.forEach((option: any, index: number) => {
       if (!this.isDefaultField(option)) {
-        const control = this.options.at(index) as FormControl;
-        control.setValue(false);
+        this.options.push(new FormControl(false));
       }
     });
   }
@@ -65,12 +89,17 @@ export class ProductInfoFormComponent {
   isDefaultField(option: any): boolean {
     return ['Entity Age', 'Maturity Age', 'Premium Payment Frequency', 'PT (In Year)', 'Gender', 'Username', 'Premium Payment Type'].includes(option.label);
   }
-
+  addRemoveControls(event: any, field: any, index: number){
+    console.log("Input add check");
+    
+  }
   onCheckboxChange(e: any, index: number) {
-    const option = this.availableOptions[index];
+   
+    const option = this. optionalFieldsList[index];
+  
     const selectedGroup = this.formService.createDynamicFormGroup(option.label, option.type, option);
 
-    if (e.target.checked) {
+    if (e) {
       if (option.group === 'productBoundaryCondition') {
         this.productBoundaryCondition.push(selectedGroup);
       } else if (option.group === 'premiumDetails') {
@@ -84,6 +113,9 @@ export class ProductInfoFormComponent {
       }
       else if(option.group === 'terminationCancellation'){
         this.terminationCancellation.push(selectedGroup);
+      }
+      else if(option.group === 'productBoundary'){
+        this.productBoundary.push(selectedGroup);
       }
       
     } else {
@@ -103,6 +135,9 @@ export class ProductInfoFormComponent {
         else if (option.group === 'terminationCancellation') {
           this.terminationCancellation.removeAt(selectedIndex);
         }
+        else if(option.group === 'productBoundary'){
+          this.productBoundary.removeAt(selectedIndex);
+        }
       }
     }
   }
@@ -114,6 +149,7 @@ export class ProductInfoFormComponent {
 
   onSubmit() {
     if (this.dynamicForm.invalid) {
+      console.log("invalid form ...");
       this.markAllAsTouched();
     } else {
       this.isSubmitted = true;
@@ -130,5 +166,6 @@ export class ProductInfoFormComponent {
     this.featreandReinsate.controls.forEach(control => control.markAsTouched());
     this.productServicingAlteration.controls.forEach(control => control.markAsTouched());
     this.terminationCancellation.controls.forEach(control => control.markAsTouched());
+    this.productBoundary.controls.forEach(control => control.markAsTouched());
   }
 }
