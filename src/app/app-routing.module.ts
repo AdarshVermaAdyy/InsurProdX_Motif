@@ -15,7 +15,6 @@ const routes: Routes = [
   },
   {path:'signup', component:SignupComponent},
   {path:'dashboard',component:DashboardComponent, canActivate:[authGuard]},
-  {path:'product-details', component: ProductDetailsComponent},
   {path: 'insur-table', component: InsurTableComponent},
   {path:'grid',component:ContainerComponent},
   {path:'**',component:DashboardComponent}

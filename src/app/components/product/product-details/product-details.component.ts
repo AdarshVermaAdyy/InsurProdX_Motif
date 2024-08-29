@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MotifButtonModule, MotifDatePickerModule, MotifFormsModule, MotifNativeDateTimeModule, MotifToastModule } from '@ey-xd/ng-motif';
@@ -47,6 +47,7 @@ export class ProductDetailsComponent {
   showErrorToast = false;
   showSuccessToast = false;
   countryList: Observable<any[]>;
+  @Output() activeTab = new EventEmitter();
 
   // mandatoryFieldsList: InputField[] = [
   //   {label: "Product Code", formControlName: 'productCode', type: 'text'},
@@ -184,7 +185,7 @@ export class ProductDetailsComponent {
   }
 
   next(){
-    this.router.navigate(['/dashboard'])
+    this.activeTab.emit('Product Info');
   }
   
 }
