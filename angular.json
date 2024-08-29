@@ -31,7 +31,8 @@
             ],
           "styles": [
               "./node_modules/@ey-xd/ng-motif/styles.scss",
-              "./node_modules/@ey-xd/motif-core/src/styles.scss"
+              "./node_modules/@ey-xd/motif-core/src/styles.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [],
             "stylePreprocessorOptions": {
