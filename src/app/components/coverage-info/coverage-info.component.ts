@@ -78,6 +78,9 @@ export class CoverageInfoComponent {
   showField8 = true;
   showField9 = true;
   showField10 = true;
+  showField11 = false;
+  showField12 = false;
+  showField13 = false;
   top: any;
   bottom: any;
   contextSwitcher: any;
@@ -156,6 +159,9 @@ export class CoverageInfoComponent {
       coverage_premium: new FormControl('', Validators.required),
       waiting_period: new FormControl(''),
       coverage_condition: new FormControl(''),
+      coverage_structure:new FormControl('',[Validators.required]),
+      coverage_Beneficiary:new FormControl('',[Validators.required]),
+      coverage_benefit:new FormControl('',[Validators.required])
     });
   }
 
@@ -195,7 +201,15 @@ export class CoverageInfoComponent {
   get waiting_period() {
     return this.userForm.get('waiting_period');
   }
-
+  get coverage_structure(){
+    return this.userForm.get('coverage_structure')
+  }
+  get coverage_Beneficiary(){
+    return this.userForm.get('coverage_Beneficiary')
+  }
+ get coverage_benefit(){
+  return this.userForm.get('coverage_benefit')
+ }
   onLinkPress(e: any, words: any) {}
   onLinkPress1(e: any, Words: any) {}
   policy() {

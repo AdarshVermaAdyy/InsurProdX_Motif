@@ -3,7 +3,7 @@
   grid-template-columns: repeat(auto-fit,minmax(10em,1fr));
   grid-gap: 1rem;
   gap: 10px;
-  margin-left: 280px;
+  margin-left: 300px;
   margin-top: 50px;
   margin-right: 20px;
   margin-top: 100px;
@@ -40,8 +40,23 @@
 
 }
 .sidenav{
-  position: fixed;
+  position: absolute;
   display: grid;
   border: 1px solid grey;
   margin-left: 70px;
+}
+input[type=checkbox]:checked {
+  background-color: #4d3911 !important;
+  color: #ffffff !important;
+}
+ul li
+{
+    list-style-type: none;
+}
+
+.check{
+
+    accent-color: rgb(1, 5, 1);
+
+
 }
