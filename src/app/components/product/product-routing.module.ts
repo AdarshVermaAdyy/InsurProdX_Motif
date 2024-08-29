@@ -4,7 +4,7 @@ import { CreateProductComponent } from './create-product/create-product.componen
 
 const routes: Routes = [
   {
-    path:'createProduct',
+    path:'create-product',
     component: CreateProductComponent
   }
 ];
