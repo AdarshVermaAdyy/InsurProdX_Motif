@@ -1,6 +1,6 @@
 
   <div class="row" class="tab-wrapper">
-    <motif-content-switcher #tabs>
+    <motif-content-switcher #tabs [selectedOption]="activeTab">
         @for (option of Options; track option) {
         <motif-content-switcher-option
         
@@ -13,13 +13,13 @@
     </div>
     <div class="row">
       <ng-template [ngIf]="tabs.selectedOption == 'Product Details'">
-        <app-product-details></app-product-details>
+        <app-product-details (activeTab)="switchTab($event)"></app-product-details>
       </ng-template>
       <ng-template [ngIf]="tabs.selectedOption == 'Product Info'">
-        <app-product-info-form></app-product-info-form>
+        <app-product-info-form (activeTab)="switchTab($event)"></app-product-info-form>
       </ng-template>
       <ng-template [ngIf]="tabs.selectedOption == 'Coverage & Info'">
-        <app-coverage-info></app-coverage-info>
+        <app-coverage-info (activeTab)="switchTab($event)"></app-coverage-info>
       </ng-template>
     </div>
 

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonSizes, MotifContentSwitcherModule } from '@ey-xd/ng-motif';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
@@ -15,7 +15,7 @@ import { CoverageInfoComponent } from '../coverage-info/coverage-info.component'
 })
 export class CreateProductComponent implements OnInit {
   Options = [{ value: 'Product Details', selected: true }, { value: 'Product Info', selected: false }, { value: 'Coverage & Info', selected: false }];
- 
+  activeTab = '';
   constructor(){}
 
   ngOnInit(): void {
@@ -25,6 +25,17 @@ export class CreateProductComponent implements OnInit {
   isFormDisabled(value : string){
     
     return false;
+  }
+
+  switchTab(event: any){
+    this.activeTab = event;
+    this.Options.forEach(tab => {
+      if(tab.value === event){
+        tab.selected = true;
+      } else {
+        tab.selected = false;
+      }
+    })
   }
 
   

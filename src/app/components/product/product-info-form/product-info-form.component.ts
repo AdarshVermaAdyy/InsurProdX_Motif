@@ -1,7 +1,7 @@
 import { group } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MotifButtonModule, MotifFormsModule, MotifToastModule, Option } from '@ey-xd/ng-motif';
 import { ProductInfoService } from 'src/app/services/product-info.service';
@@ -26,6 +26,7 @@ export class ProductInfoFormComponent {
   toastType = '';
   showErrorToast = false;
   showSuccessToast = false;
+  @Output() activeTab = new EventEmitter();
   optionalFieldsList: any = [
     { id: 41, label: "Product Start Date", type: "range", min: 18, max: 50, group: 'productBoundary' },
     { id: 42, label: "Product End Date", type: "range", min: 18, max: 50, group: 'productBoundary' },
@@ -156,8 +157,9 @@ export class ProductInfoFormComponent {
       console.log("Form submitted ", this.isSubmitted, this.dynamicForm.value);
     }
   }
+
   next(){
-    console.log("Next click");
+    this.activeTab.emit('Coverage & Info');
   }
 
   markAllAsTouched() {
