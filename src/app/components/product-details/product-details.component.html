@@ -225,44 +225,56 @@
             </div>
             <div class="motif-row">
                 <div class="motif-col-md-6">
-                    <motif-form-field>
-                        <motif-checkbox motifInput formControlName="riderCheckbox1">
-                            Rider 1
-                        </motif-checkbox>
-                    </motif-form-field>
-                    <motif-form-field *ngIf="productDetailsForm.get('riderCheckbox1')?.value">
-                        <motif-radio-button-group aria-label="undefined" role="radiogroup" id="radio-group-label-1"
-                            aria-labelledby="radio-group-label-1" aria-describedby="radio-group-label-1"
-                            formControlName="riderRadio1">
-                            <motif-radio-button value="mandatory">
-                                Mandatory
-                            </motif-radio-button>
-                            <motif-radio-button value="optional">
-                                Optional
-                            </motif-radio-button>
-                        </motif-radio-button-group>
-                    </motif-form-field>
+                    <div class="motif-row">
+                        <div class="motif-col-md-2">
+                            <motif-form-field>
+                                <motif-checkbox motifInput formControlName="riderCheckbox1">
+                                    Rider 1
+                                </motif-checkbox>
+                            </motif-form-field>
+                        </div>
+                        <div class="motif-col-md-4">
+                            <motif-form-field *ngIf="productDetailsForm.get('riderCheckbox1')?.value" style="width: 50%;">
+                                <motif-radio-button-group aria-label="undefined" role="radiogroup" id="radio-group-label-1"
+                                    aria-labelledby="radio-group-label-1" aria-describedby="radio-group-label-1"
+                                    formControlName="riderRadio1">
+                                    <motif-radio-button value="mandatory">
+                                        Mandatory
+                                    </motif-radio-button>
+                                    <motif-radio-button value="optional">
+                                        Optional
+                                    </motif-radio-button>
+                                </motif-radio-button-group>
+                            </motif-form-field>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="motif-row">
                 <div class="motif-col-md-6">
-                    <motif-form-field>
-                        <motif-checkbox motifInput formControlName="riderCheckbox2">
-                            Rider 2
-                        </motif-checkbox>
-                    </motif-form-field>
-                    <motif-form-field *ngIf="productDetailsForm.get('riderCheckbox2')?.value">
-                        <motif-radio-button-group aria-label="undefined" role="radiogroup" id="radio-group-label-1"
-                            aria-labelledby="radio-group-label-1" aria-describedby="radio-group-label-1"
-                            formControlName="riderRadio2">
-                            <motif-radio-button value="mandatory">
-                                Mandatory
-                            </motif-radio-button>
-                            <motif-radio-button value="optional">
-                                Optional
-                            </motif-radio-button>
-                        </motif-radio-button-group>
-                    </motif-form-field>
+                    <div class="motif-row">
+                        <div class="motif-col-md-2">
+                            <motif-form-field>
+                                <motif-checkbox motifInput formControlName="riderCheckbox2">
+                                    Rider 2
+                                </motif-checkbox>
+                            </motif-form-field>
+                        </div>
+                        <div class="motif-col-md-4">
+                            <motif-form-field *ngIf="productDetailsForm.get('riderCheckbox2')?.value">
+                                <motif-radio-button-group aria-label="undefined" role="radiogroup" id="radio-group-label-1"
+                                    aria-labelledby="radio-group-label-1" aria-describedby="radio-group-label-1"
+                                    formControlName="riderRadio2">
+                                    <motif-radio-button value="mandatory">
+                                        Mandatory
+                                    </motif-radio-button>
+                                    <motif-radio-button value="optional">
+                                        Optional
+                                    </motif-radio-button>
+                                </motif-radio-button-group>
+                            </motif-form-field>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -333,8 +345,8 @@
             </div>
 
             <div class="form-btn-wrapper">
-                <button motifButton size="medium" class="mt-3">Submit</button>
-                <button motifButton size="medium" class="mt-3">Reset</button>
+                <button motifButton size="medium" class="mt-3">Save as Draft</button>
+                <button motifButton size="medium" class="mt-3">Next</button>
             </div>
         </form>
     </div>
