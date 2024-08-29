@@ -1,5 +1,5 @@
 
-<div class="sidenav">
+<!-- <div class="sidenav">
   <ul>
     <li>
 
@@ -67,10 +67,17 @@
       </label>
     </li>
   </ul>
-</div>
+</div> -->
 
 
 <div class="wrapper-container">
+  <div class="field-list-wrapper">
+    <div *ngFor="let field of optionalFieldsList; let i = index">
+        <motif-checkbox type="text" motifInput (change)="addRemoveControls($event, field, i)">
+            {{field.label}}
+        </motif-checkbox>
+    </div>
+</div>
 
   <div class="form-wrapper">
 
@@ -180,39 +187,30 @@
         </div>
           </div>
           <br>
+
           <div class="motif-row">
-            <div class="motif-col-lg-4 " *ngIf="showField11">
+            <div class="motif-col-lg-4" *ngIf="optionalFieldsList[0].isVisible">
                 <motif-form-field>
                     <label motifLabel>Coverage structure</label>
-                    <input motifInput type="text" aria-label="Input" formControlName="coverage_structure"
-                        validationInteraction="touched" />
-                    <div class="error-msg" *ngIf="coverage_structure?.invalid && (coverage_structure?.dirty || coverage_structure?.touched)">
-                        <span *ngIf="coverage_structure?.errors?.['required']">This information is required.</span>
-                    </div>
+                    <input type="text" motifInput formControlName="Coveragestructure" />
                 </motif-form-field>
             </div>
-            <div class="motif-col-lg-4 " *ngIf="showField12">
+            <div class="motif-col-lg-4" *ngIf="optionalFieldsList[1].isVisible">
+                <motif-form-field>
+                    <label motifLabel>Beneficiary Category</label>
+                    <input type="text" motifInput formControlName="Beneficiarycategory" />
+                </motif-form-field>
+            </div>
+            <div class="motif-col-lg-4" *ngIf="optionalFieldsList[2].isVisible">
               <motif-form-field>
-                  <label motifLabel>Beneficiary Category</label>
-                  <input motifInput type="text" aria-label="Input" formControlName="coverage_Beneficiary"
-                      validationInteraction="touched" />
-                  <div class="error-msg" *ngIf="coverage_Beneficiary?.invalid && (coverage_Beneficiary?.dirty || coverage_Beneficiary?.touched)">
-                      <span *ngIf="coverage_Beneficiary?.errors?.['required']">This information is required.</span>
-                  </div>
+                  <label motifLabel>Supplemental Death Benefit</label>
+                  <input type="text" motifInput formControlName="Supplementaldeathbenefit" />
               </motif-form-field>
           </div>
-          <div class="motif-col-lg-4 " *ngIf="showField13">
-            <motif-form-field>
-                <label motifLabel> Supplemental Death Benefit</label>
-                <input motifInput type="text" aria-label="Input" formControlName="coverage_benefit"
-                    validationInteraction="touched" />
-                <div class="error-msg" *ngIf="coverage_benefit?.invalid && (coverage_benefit?.dirty || coverage_benefit?.touched)">
-                    <span *ngIf="coverage_benefit?.errors?.['required']">This information is required.</span>
-                </div>
-            </motif-form-field>
         </div>
 
-        </div>
+
+
           <div class="motif-row">
               <div class="motif-col-lg-4 " *ngIf="showField8">
                   <motif-form-field>

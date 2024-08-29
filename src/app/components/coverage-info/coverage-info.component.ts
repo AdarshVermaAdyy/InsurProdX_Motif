@@ -40,6 +40,19 @@ import {
   MotifActionIcSettings24px,
 } from '@ey-xd/motif-icon';
 
+interface InputField{
+  label: string;
+  formControlName: string;
+  type: 'select' | 'text' | 'radio' | 'checkbox';
+  options?: Options[] | [];
+  isVisible?: boolean
+}
+
+interface Options {
+  name: string;
+  value: string;
+}
+
 @Component({
   selector: 'app-coverage-info',
   standalone: true,
@@ -85,6 +98,12 @@ export class CoverageInfoComponent {
   bottom: any;
   contextSwitcher: any;
   isNavbarActive = false;
+  optionalFieldsList: InputField[] = [
+    {label: "Coverage structure", formControlName: 'Coveragestructure', type: 'text', isVisible: false},
+    {label: "Beneficiary Category", formControlName: 'Beneficiarycategory', type: 'text', isVisible: false},
+    {label: "Supplemental Death Benefit", formControlName: 'Supplementaldeathbenefit', type: 'text', isVisible: false},
+
+  ]
 
   coverageType = [
     'Death Benefit',
@@ -236,5 +255,14 @@ export class CoverageInfoComponent {
     this.userForm.reset();
     this.coverage_effective_date1?.setValue(new Date());
     this.coverage_expiry_date?.setValue(new Date());
+  }
+
+  addRemoveControls(event: any, field: InputField, index: number){
+    field.isVisible = event;
+    if(event){
+      this.userForm.addControl(field.formControlName, new FormControl(''));
+    } else {
+      this.userForm.removeControl(field.formControlName);
+    }
   }
 }
