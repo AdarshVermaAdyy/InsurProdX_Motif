@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonSizes, MotifContentSwitcherModule } from '@ey-xd/ng-motif';
-import { ProductDetailsComponent } from 'src/app/components/product-details/product-details.component';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
 
 @Component({
   selector: 'app-create-product',
   standalone: true,
-  imports: [MotifContentSwitcherModule,FormsModule,ProductDetailsComponent,CommonModule],
+  imports: [MotifContentSwitcherModule,FormsModule,CommonModule, ProductDetailsComponent],
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.scss'
 })
