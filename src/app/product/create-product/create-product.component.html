@@ -1,1 +1,19 @@
-<p>create-product works!</p>
+<div class="row">
+  <div class="row">
+    <motif-content-switcher #tabs>
+        @for (option of Options; track option) {
+        <motif-content-switcher-option
+        
+          [value]="option.value"
+          [selected]="option.selected"
+          [disabled]="isFormDisabled(option.value)"
+        ></motif-content-switcher-option>
+        }
+      </motif-content-switcher>
+    </div>
+    <div class="row">
+      <ng-template [ngIf]="tabs.selectedOption == 'Product Details'">
+        <app-product-details></app-product-details>
+      </ng-template>
+    </div>
+</div>
