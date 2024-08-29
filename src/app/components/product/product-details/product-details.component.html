@@ -15,147 +15,6 @@
         </motif-toast>
 
         <form [formGroup]="productDetailsForm">
-            <!-- <div class="motif-row">
-                <div class="motif-col-lg-4">
-                    <motif-form-field>
-                        <label motifLabel for="firstName">First Name</label>
-                        <input id="firstName" motifInput type="text" aria-label="Input" formControlName="firstName"
-                            validationInteraction="touched" />
-                        <div class="error-msg" *ngIf="(firstName?.invalid) && (firstName?.dirty || firstName?.touched)">
-                            <span *ngIf="firstName?.errors?.['required']">This information is required.</span>
-                        </div>
-                    </motif-form-field>
-                </div>
-                <div class="motif-col-lg-4">
-                    <motif-form-field>
-                        <label motifLabel>Middle Name</label>
-                        <input motifInput type="text" aria-label="Input" formControlName="middleName"
-                            validationInteraction="touched" />
-                    </motif-form-field>
-                </div>
-                <div  class="motif-col-lg-4">
-                    <motif-form-field>
-                        <label motifLabel>Last Name</label>
-                        <input motifInput type="text" aria-label="Input" formControlName="lastName"
-                            validationInteraction="touched" />
-                        <div class="error-msg" *ngIf="(lastName?.invalid) && (lastName?.dirty || lastName?.touched)">
-                            <span *ngIf="lastName?.errors?.['required']">This information is required.</span>
-                        </div>
-                    </motif-form-field>
-                </div>
-            </div>
-            <div class="motif-row">
-                <div class="motif-col-lg-4">
-                    <motif-form-field>
-                        <label motifLabel>Email</label>
-                        <input motifInput type="email" aria-label="Input" formControlName="email"
-                            validationInteraction="touched" />
-                        <div class="error-msg" *ngIf="(email?.invalid) && (email?.dirty || email?.touched)">
-                            <span *ngIf="email?.errors?.['required']">This information is required.</span>
-                            <span *ngIf="email?.errors?.['pattern']">Please enter valid email address.</span>
-                        </div>
-                    </motif-form-field>
-                </div>
-                <div class="motif-col-lg-4">
-                    <motif-form-field>
-                        <label motifLabel>Phone</label>
-                        <input motifInput type="text" aria-label="Input" formControlName="phone"
-                            validationInteraction="touched" />
-                        <div class="error-msg" *ngIf="(phone?.invalid) && (phone?.dirty || phone?.touched)">
-                            <span *ngIf="phone?.errors?.['required']">This information is required.</span>
-                            <span *ngIf="phone?.errors?.['pattern']">Please enter valid phone.</span>
-                        </div>
-                    </motif-form-field>
-                </div>
-                <div class="motif-col-lg-4">
-                    <motif-form-field>
-                        <label motifLabel>Alternate Phone</label>
-                        <input motifInput type="text" aria-label="Input" formControlName="altPhone"
-                            validationInteraction="touched" />
-                        <div class="error-msg" *ngIf="(altPhone?.invalid) && (altPhone?.dirty || altPhone?.touched)">
-                            <span *ngIf="altPhone?.errors?.['required']">This information is required.</span>
-                            <span *ngIf="altPhone?.errors?.['pattern']">Please enter valid altPhone.</span>
-                        </div>
-                    </motif-form-field>
-                </div>
-            </div>
-            <div class="motif-row">
-                <div class="motif-col-lg-6 add-field">
-                    <motif-form-field>
-                        <label motifLabel>Adress 1</label>
-                        <input motifInput type="text" aria-label="Input" formControlName="add1"
-                            validationInteraction="touched" />
-                        <div class="error-msg" *ngIf="add1?.invalid && (add1?.dirty || add1?.touched)">
-                            <span *ngIf="add1?.errors?.['required']">This information is required.</span>
-                        </div>
-                    </motif-form-field>
-                </div>
-                <div class="motif-col-lg-6 add-field">
-                    <motif-form-field>
-                        <label motifLabel>Address 2</label>
-                        <input motifInput type="text" aria-label="Input" formControlName="add2"
-                            validationInteraction="touched" />
-                    </motif-form-field>
-                </div>
-            </div>
-            <div class="motif-row">
-                <div class="motif-col-lg-4">
-                    <motif-form-field>
-                        <label motifLabel>City</label>
-                        <input motifInput type="text" aria-label="Input" formControlName="city"
-                            validationInteraction="touched" />
-                        <div class="error-msg" *ngIf="(city?.invalid) && (city?.dirty || city?.touched)">
-                            <span *ngIf="city?.errors?.['required']">This information is required.</span>
-                        </div>
-                    </motif-form-field>
-                </div>
-                <div class="motif-col-lg-4">
-                    <motif-form-field>
-                        <label motifLabel>Pincode</label>
-                        <input motifInput type="text" aria-label="Input" formControlName="pin"
-                            validationInteraction="touched" />
-                        <div class="error-msg" *ngIf="(pin?.invalid) && (pin?.dirty || pin?.touched)">
-                            <span *ngIf="pin?.errors?.['required']">This information is required.</span>
-                            <span *ngIf="pin?.errors?.['pattern']">Please enter valid pincode.</span>
-                        </div>
-                    </motif-form-field>
-                </div>
-                <div class="motif-col-lg-4">
-                    <motif-form-field>
-                        <label motifLabel>State</label>
-                        <input motifInput type="text" aria-label="Input" formControlName="state"
-                            validationInteraction="touched" />
-                        <div class="error-msg" *ngIf="(state?.invalid) && (state?.dirty || state?.touched)">
-                            <span *ngIf="state?.errors?.['required']">This information is required.</span>
-                        </div>
-                    </motif-form-field>
-                </div>
-            </div>
-            <div class="motif-row">
-            <div class="motif-col-lg-4">
-                <motif-form-field>
-                    <label motifLabel>Country</label>
-                    <motif-select formControlName="country" aria-label="Aria Label" validationInteraction="touched"
-                        selectTitle="Custom select title" [filter]="true">
-                        <motif-option value="0">--Select--</motif-option>
-                        <motif-option *ngFor="let country of countryList | async"
-                            [value]="country?.name?.common">{{country?.name?.common}}</motif-option>
-                    </motif-select>
-                    <div class="error-msg" *ngIf="(country?.invalid) && (country?.dirty || country?.touched)">
-                        <span *ngIf="country?.errors?.['required']">This information is required.</span>
-                    </div>
-                </motif-form-field>
-            </div>
-            <div class="motif-col-lg-4">
-                <motif-form-field>
-                    <label motifLabel>Date of Birth</label>
-                    <input name="dob" formControlName="dob" [motifDatePicker]="dob" placeholder="Select date"
-                        [motifDatePickerTrigger]="dob" selectMode="single" />
-                    <motif-date-picker #dob></motif-date-picker>
-                </motif-form-field>
-            </div>
-            </div> -->
-
             <div class="motif-row">
                 <div class="motif-col-md-4">
                     <motif-form-field>
@@ -408,3 +267,12 @@
         </form>
     </div>
 </div>
+
+<!-- <div class="motif-col-lg-4">
+    <motif-form-field>
+        <label motifLabel>Date of Birth</label>
+        <input name="dob" formControlName="dob" [motifDatePicker]="dob" placeholder="Select date"
+            [motifDatePickerTrigger]="dob" selectMode="single" />
+        <motif-date-picker #dob></motif-date-picker>
+    </motif-form-field>
+</div> -->
